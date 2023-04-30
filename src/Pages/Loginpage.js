@@ -1,6 +1,6 @@
 import { Container } from "@mui/system";
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
+
 import Form from "react-bootstrap/Form";
 import { Link, useNavigate } from "react-router-dom";
 import { collection, setDoc, doc, getFirestore } from "firebase/firestore";
@@ -24,6 +24,7 @@ import { useDispatch, useSelector } from "react-redux";
 import App from "../App";
 import SignUpPage from "./SignUpPage";
 import { FcGoogle } from "react-icons/fc";
+import { Button, Typography } from "@mui/material";
 
 const Loginpage = () => {
   const navigate = useNavigate();
@@ -132,25 +133,35 @@ const Loginpage = () => {
               <Form.Check type="checkbox" label="Check me out" />
             </Form.Group>
 
-            <Button variant="primary" onClick={handleSignIn}>
-              Login
-            </Button>
-            <Form.Group>
-              <Form.Text className="text-muted">
-                If you don't have an account , please
-                <Link
-                  to="signUp"
-                  style={{ color: "#737373", marginLeft: 5, color: "red" }}
-                >
-                  Sign-up
+            <div style={{ textAlign: "center" }}>
+              <Button variant="contained" onClick={handleSignIn}>
+                Login
+              </Button>
+            </div>
+
+            <div>
+              <Typography
+                style={{
+                  marginTop: 30,
+                  marginBottom: 20,
+                  textAlign: "center",
+                  fontSize: 14,
+                  color: "#6C757D",
+                }}
+              >
+                If you don't have an account , please{" "}
+                <Link to={`/signup`} style={{ color: "#dc1e3e" }}>
+                  Sign Up
                 </Link>
-              </Form.Text>
-            </Form.Group>
-            <Button variant="Outlined" onClick={handleGoogleSignIn}>
-              {" "}
-              <FcGoogle />
-              Login with Google
-            </Button>
+              </Typography>
+            </div>
+
+            <div style={{ textAlign: "center" }}>
+              <Button variant="outlined" onClick={handleGoogleSignIn}>
+                <FcGoogle style={{ margin: 5, fontSize: 20 }} />
+                Login with Google
+              </Button>
+            </div>
           </Form>
         </Container>
       </div>

@@ -84,6 +84,23 @@ function SignUpPage() {
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="Check me out" />
             </Form.Group>
+
+            <div>
+              <Typography
+                style={{
+                  marginTop: 10,
+                  marginBottom: 15,
+                  textAlign: "center",
+                  fontSize: 14,
+                  color: "#6C757D",
+                }}
+              >
+                Already have an account?{" "}
+                <Link to={`/login`} style={{ color: "#dc1e3e" }}>
+                  Log in
+                </Link>
+              </Typography>
+            </div>
             <Button variant="primary" onClick={handleSignIn}>
               Submit
             </Button>
