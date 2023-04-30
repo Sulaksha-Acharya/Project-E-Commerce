@@ -149,7 +149,7 @@ const Loginpage = () => {
                   color: "#6C757D",
                 }}
               >
-                If you don't have an account , please{" "}
+                If you don't have an account, please{" "}
                 <Link to={`/signup`} style={{ color: "#dc1e3e" }}>
                   Sign Up
                 </Link>
