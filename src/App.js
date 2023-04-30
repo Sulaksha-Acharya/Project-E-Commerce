@@ -13,13 +13,14 @@ import Contact from "./Pages/Contact";
 import SingleProduct from "./SingleProduct";
 import Home from "./Pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Login from "./Pages/Loginpage";
 import Wishlist from "./Pages/Wishlist";
+import SignUpPage from "./Pages/SignUpPage";
 import Header from "./component/Header";
 import Footer from "./component/Footer";
 import Cart from "./Pages/Cart";
 import Checkout from "./Pages/Checkout";
 import { ToastContainer } from "react-toastify";
+import Loginpage from "./Pages/Loginpage";
 import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
@@ -33,11 +34,12 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<Product />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/singleproduct/:id" element={<SingleProduct />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/singproduct/:id" element={<SingleProduct />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/login" element={<Loginpage />} />
         <Route path="/wishlist" element={<Wishlist />} />
+        {/* <Route path="/contactus" element={<ContactUs />} /> */}
         <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
       </Routes>
 
       <Footer />

@@ -10,7 +10,6 @@ import { red } from "@mui/material/colors";
 import { currentUser } from "../config/firebase";
 import { Link, useHistory } from "react-router-dom";
 import { selectUserInfo, userActions } from "../store/user-slice";
-a;
 
 const Header = () => {
   const dispatch = useDispatch();

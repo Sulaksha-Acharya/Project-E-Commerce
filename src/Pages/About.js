@@ -22,7 +22,7 @@ const About = () => {
         </h1>
         <p style={{ textAlign: "center" }}>
           ShopCart strives to provide customers the best shopping experience in
-          Nepal. The online store is updated daily and new products are added
+          India. The online store is updated daily and new products are added
           every day to cater to all your needs
         </p>
         <img

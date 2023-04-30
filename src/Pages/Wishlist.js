@@ -8,19 +8,41 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Container, margin } from "@mui/system";
 import ItemCard from "../component/ItemCard";
-import { useSelector } from "react-redux";
-import { selectItemlist, wishlistItemlist } from "../store/cart-slice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  cartActions,
+  selectItemlist,
+  wishlistItemlist,
+} from "../store/cart-slice";
 import React, { useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
 // import { FiDelete } from "react-icons/Fi";
 import { CiTrash } from "react-icons/ci";
+import { auth } from "../config/firebase";
+import { useNavigate } from "react-router-dom";
 
 const rows = [];
 const Wishlist = ({ products, total, onCheckoutClicked }) => {
   const wishlistItems = useSelector(wishlistItemlist);
   const [quantity, setQuantity] = useState(0);
+  const Wishlist = ({ product }) => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-  console.log(wishlistItems);
+    console.log(wishlistItems);
+    const Wishlist = () => {
+      if (auth) {
+        navigate("/login");
+      } else {
+        navigate("/login");
+      }
+    };
+    dispatch(
+      cartActions.Wishlist({
+        ...product,
+      })
+    );
+  };
 
   return (
     <div>

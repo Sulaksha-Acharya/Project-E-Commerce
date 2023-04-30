@@ -9,7 +9,8 @@ import { FaInstagram, FaFacebook, FaLinkedin, FaYoutube } from "react-icons/fa";
 const Footer = () => (
   <div
     style={{
-      backgroundColor: "lightgray",
+      // backgroundColor: "dodgerblue",
+      backgroundColor: "rgba(0, 82, 93, 0.2)",
       display: "flex",
       marginTop: 50,
     }}
@@ -67,7 +68,7 @@ const Footer = () => (
           <h5> 100% ORIGINAL</h5>
           <p color="text.seconczry">
             {" "}
-            guarantee for all product at shopcart.com
+            Guarantee for all product at shopcart.com
           </p>
           <h5> Return within 30days</h5>
           <p>of receiving your order</p>
@@ -82,10 +83,12 @@ const Footer = () => (
             />
             <b> Happy Shopping!</b>
             <Typography style={{ marginTop: 10 }}> Follow Us!</Typography>
-            <FaInstagram />
-            <FaFacebook />
-            <FaLinkedin />
-            <FaYoutube />
+            <div style={{ gap: "10" }}>
+              <FaInstagram />
+              <FaFacebook />
+              <FaLinkedin />
+              <FaYoutube />
+            </div>
           </Typography>
         </Typography>
       </Row>

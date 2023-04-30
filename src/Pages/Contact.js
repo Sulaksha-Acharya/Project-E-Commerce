@@ -23,7 +23,37 @@ const Contact = () => {
         height={300}
         style={{ marginLeft: 160, marginBottom: 140, marginTop: 50 }}
       />
-      <h4 style={{ marginLeft: 190, fontSize: 20 }}>Hi,how can we help you?</h4>
+
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14130.948231973627!2d85.34462205!3d27.694520599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1681814921257!5m2!1sen!2snp"
+        width="400"
+        height="300"
+        style={{ marginLeft: "70%" }}
+        // style="border:0;"
+        allowfullScreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+
+      <Container style={{ display: "flex" }}></Container>
+
+      <Card sx={{ display: "flex", maxWidth: 300, gap: 3 }}>
+        <Box sx={{ display: "flex", flexDirection: "column" }}></Box>
+        <CardContent sx={{ flex: "1 0 auto" }}>
+          <h4>Call Us</h4>
+          <Typography>90004400044</Typography>
+          <Typography>87772882288</Typography>
+          <h4>Location</h4>
+          <Typography>asdfghjkl;kaxcvbnm,.</Typography>
+          <Typography>asdfghjkl;kaxcvbnm,.</Typography>
+          <h4>Business hours</h4>
+          <Typography>Monday to Friday</Typography>
+          <Typography>
+            LIVE CHAT services are available Sun to Fri: 7 AM to 9 PM and Sat: 9
+            AM to 9 PM.
+          </Typography>
+        </CardContent>
+      </Card>
       <Container style={{ display: "flex", gap: 10, marginBottom: 50 }}>
         <Card sx={{ boxShadow: "none", border: 1 }}>
           <CardContent>

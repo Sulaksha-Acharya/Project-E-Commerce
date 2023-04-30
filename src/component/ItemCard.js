@@ -1,12 +1,13 @@
 import React from "react";
-import { FcLikePlaceholder } from "react-icons/fc";
-
+import { FcLike } from "react-icons/fc";
+import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
 import {
   Button,
   Card,
   CardActions,
   CardContent,
   CardMedia,
+  IconButton,
   Typography,
 } from "@mui/material";
 import { useDispatch } from "react-redux";
@@ -14,14 +15,33 @@ import { cartActions } from "../store/cart-slice";
 import { toast } from "react-toastify";
 import BasicModal from "./Modal";
 import Wishlist from "../Pages/Wishlist";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../config/firebase";
 
 const ItemCard = ({ product }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [showBasicModal, setShowBasicModal] = React.useState(false);
 
-  // methods
+  // methods;
   const addToCart = () => {
+    if (auth) {
+      navigate("/login");
+    } else {
+      navigate("/login");
+    }
+    // const handleSignIn = async () => {
+    //   signInWithEmailAndPassword(authentication, email, password)
+    //     .then((res) => {
+    //       dispatch(userActions.loginUser(res.user));
+    //       navigate("login");
+    //     })
+
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // };
     toast.success("Product has been added to cart");
 
     dispatch(
@@ -43,36 +63,32 @@ const ItemCard = ({ product }) => {
   };
   return (
     <>
-      <Card sx={{ maxWidth: 280 }}>
-        <CardMedia sx={{ height: 140 }} image={product.image} title="Laptop" />
+      <Card>
+        <CardMedia
+          sx={{ height: 120, objectFit: "cover" }}
+          image={product.image}
+          title="Laptop"
+        />
 
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="subtitle" component="div">
             {product.title}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {product.description}
           </Typography>
         </CardContent>
 
         <CardActions>
-          <FcLikePlaceholder />
-          <Button
+          <FcLike />
+          <IconButton
             size="small"
             onClick={() => {
               setShowBasicModal(true);
-              // <Button size="small" onClick={Wishlist}>
-              //   Wishlist
-              // </Button>;
-              // addToWishlist()
             }}
           >
             Wishlist
-          </Button>
-
-          <Button size="small" onClick={addToCart}>
-            Add to Cart
-          </Button>
+          </IconButton>
+          <IconButton size="small" onClick={addToCart}>
+            <AddShoppingCartOutlinedIcon />
+          </IconButton>
         </CardActions>
       </Card>
 
@@ -86,5 +102,4 @@ const ItemCard = ({ product }) => {
     </>
   );
 };
-
 export default ItemCard;

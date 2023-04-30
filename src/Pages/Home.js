@@ -1,20 +1,25 @@
 import React, { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
-import Modal from "@mui/material/Modal";
-import mn from "../asset/mn.jpg";
+import a from "../asset/a.png";
+import b from "../asset/b.png";
+import c from "../asset/c.png";
 import ddd from "../asset/ddd.jpg";
+import k1 from "../asset/k1.jpg";
+import k2 from "../asset/k2.jpg";
+import g1 from "../asset/g1.jpg";
 import kid1 from "../asset/kid1.jpg";
 import kid2 from "../asset/kid2.jpg";
 import kid3 from "../asset/kid3.jpg";
 import kid4 from "../asset/kid4.jpg";
-import wo from "../asset/wo.jpg";
-import ethinic from "../asset/ethinic.jpg";
-import img2 from "../asset/img2.jpg";
+import b5 from "../asset/b5.jpeg";
+import b3 from "../asset/b3.jpeg";
+import b4 from "../asset/b4.jpg";
+import b6 from "../asset/b6.jpeg";
+import b7 from "../asset/b7.jpeg";
+
 import watch from "../asset/watch.jpg";
 import iphone from "../asset/iphone.jpg";
-import onepiece from "../asset/onepiece.jpg";
 import nm from "../asset/nm.jpg";
-import tshirt from "../asset/tshirt.jpg";
 import del from "../asset/del.jpg";
 import shoes from "../asset/shoes.jpg";
 import { useNavigate } from "react-router-dom";
@@ -32,14 +37,13 @@ const Home = () => {
 
   const carouselItems = [
     {
-      subtitle: "30 % Off",
-      image: ethinic,
+      image: a,
     },
-    { title: "Del Laptop", subtitle: "10 % Off", image: del },
     {
-      title: "Shoes for Men Light Sports Fashion Running Shoes",
-      subtitle: "10 % Off",
-      image: shoes,
+      image: b,
+    },
+    {
+      image: c,
     },
   ];
 
@@ -49,7 +53,7 @@ const Home = () => {
       // description:
       //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
 
-      image: mn,
+      image: a,
       price: 200,
       id: 1,
     },
@@ -158,7 +162,7 @@ const Home = () => {
       // description:
       //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
 
-      image: img2,
+      image: kid1,
       price: 500,
       id: 5,
     },
@@ -167,7 +171,7 @@ const Home = () => {
       // description:
       //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
 
-      image: img2,
+      image: kid2,
       price: 500,
       id: 5,
     },
@@ -176,7 +180,7 @@ const Home = () => {
       // description:
       //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
 
-      image: img2,
+      image: kid3,
       price: 500,
       id: 5,
     },
@@ -185,7 +189,7 @@ const Home = () => {
       // description:
       //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
 
-      image: img2,
+      image: kid4,
       price: 500,
       id: 5,
     },
@@ -194,7 +198,7 @@ const Home = () => {
       // description:
       //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
 
-      image: img2,
+      image: k1,
       price: 500,
       id: 5,
     },
@@ -203,25 +207,61 @@ const Home = () => {
       // description:
       //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
 
-      image: img2,
+      image: g1,
       price: 500,
       id: 5,
     },
     {
-      title: "New Product R",
+      title: "New Product S",
       // description:
       //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
 
-      image: img2,
+      image: k2,
       price: 500,
       id: 5,
     },
     {
-      title: "New Product R",
+      title: "New Product S",
       // description:
       //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
 
-      image: img2,
+      image: b6,
+      price: 500,
+      id: 5,
+    },
+    {
+      title: "New Product T",
+      // description:
+      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+      image: b4,
+      price: 500,
+      id: 5,
+    },
+    {
+      title: "New Product U",
+      // description:
+      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+      image: b3,
+      price: 500,
+      id: 5,
+    },
+    {
+      title: "New Product U",
+      // description:
+      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+      image: b5,
+      price: 500,
+      id: 5,
+    },
+    {
+      title: "New Product U",
+      // description:
+      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+      image: b7,
       price: 500,
       id: 5,
     },
@@ -232,19 +272,25 @@ const Home = () => {
       <h1 style={{ textAlign: "center" }}>
         <b>Welcome to ShopCart</b>
       </h1>
-
-      <Carousel>
-        {carouselItems?.map((item) => (
-          <Carousel.Item key={item?.title}>
-            <img src={item?.image} alt="img" width={"100%"} height={300} />
-            <Carousel.Caption>
-              <h3>{item?.title}</h3>
-              <p>{item?.subtitle}</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-        ))}
-      </Carousel>
-
+      <div>
+        <Container>
+          <Carousel>
+            {carouselItems?.map((item) => (
+              <Carousel.Item key={item?.title}>
+                <img
+                  src={item?.image}
+                  alt="img"
+                  width={"100%"}
+                  height={380}
+                  objectfit="cover"
+                  fluid
+                />
+                <h3>{item?.title}</h3>
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        </Container>
+      </div>
       <div>
         <h1 style={{ textAlign: "center" }}>
           <b>See the latest Outfit</b>
@@ -254,9 +300,9 @@ const Home = () => {
         </p>
 
         <Container style={{ display: "flex", gap: 15 }}>
-          <Grid container spacing={2}>
+          <Grid container spacing={3}>
             {latestProducts?.map((product) => (
-              <Grid item xs={3} key={product.title}>
+              <Grid item xs={2} key={product.title}>
                 <ItemCard product={product} />
               </Grid>
             ))}

@@ -1,61 +1,85 @@
-import { Typography } from "@mui/material";
-import { green, lightBlue, red } from "@mui/material/colors";
 import { Container } from "@mui/system";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { collection, setDoc, doc, getFirestore } from "firebase/firestore";
+import {
+  auth,
+  authentication,
+  currentUser,
+  provider,
+  // signInWithPopup,
+} from "../config/firebase";
+import { loginUser } from "../store/user-slice";
+// import { GoogleLoginButton } from "react-social-login-buttons";
 
-// const Loginpage = () => {
-//   const [user, setUser] = useState({
-//     email: "",
-//     password: "",
-//   });
-// };
+import "firebase/auth";
+import firebase from "firebase/compat/app";
+import { signInWithPopup } from "firebase/auth";
 
-// let name, value;
-// const getUserData = (event) => {
-//   name = event.target.name;
-//   value = event.target.value;
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { selectUserInfo, userActions } from "../store/user-slice";
+import { useDispatch, useSelector } from "react-redux";
+import App from "../App";
+import SignUpPage from "./SignUpPage";
+import { FcGoogle } from "react-icons/fc";
 
-//   setUser({ ...user, [name]: value });
-// };
+const Loginpage = () => {
+  const navigate = useNavigate();
+  // const [user] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+  const db = getFirestore(App);
+  const dispatch = useDispatch();
+  const userDetail = useSelector(selectUserInfo);
 
-// const postData = async (e) => {
-//   e.preventDefault();
+  console.log(userDetail);
 
-//   const {email,password} = user;
-//    const res = await fetch(
+  const handleSignIn = async () => {
+    signInWithEmailAndPassword(authentication, email, password)
+      .then((res) => {
+        dispatch(userActions.loginUser(res.user));
+        navigate("/");
+      })
 
-//    "https://e-commerce-website-e760e-default-rtdb.firebaseio.com/reactdata.json", {
-//     method: "POST"
-//     headers: {
-//       "Content-Type" : "application/json",
-//     },
-//     body: JSON.stringify
-//     email,
-//      password,
-//   })
-//  }
-//  );
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const GoogleSignIn = async () => {
+    GoogleSignIn()
+      .then((res) => {
+        dispatch(userActions.loginUser(res));
+        navigate("/");
+      })
 
-//    if (res) {
-//       setUser({
-//       email: "",
-//       password: "",
-//     });
-//     alert("Data Stored Sucessfully")
-//    }
-//   };
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-function BasicExample() {
+  const [user, setUser] = useState(null);
+
+  const handleGoogleSignIn = async () => {
+    provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
+
+    try {
+      const result = await signInWithPopup(auth, provider);
+      setUser(result.user);
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-    <div style={{ backgroundColor: "lightblue", padding: 50 }}>
+    <div style={{ backgroundColor: "lightgray", padding: 50 }}>
       <div>
-        <h3 style={{ textAlign: "center" }}>Login in to ShopCard</h3>
-        <Typography style={{ textAlign: "center" }}>
-          Enter your Login Details
-        </Typography>
+        <h3 style={{ textAlign: "center" }}>
+          Welcome to ShopCard!Please Login
+        </h3>
         <Container
           style={{
             maxWidth: 500,
@@ -64,41 +88,73 @@ function BasicExample() {
             borderRadius: 10,
           }}
         >
+          {Error && (
+            <div style={{ color: "red", marginBottom: "10px" }}>
+              {Error?.message}
+            </div>
+          )}
+          {error && (
+            <div style={{ color: "red", marginBottom: "10px" }}>
+              {error?.message}
+            </div>
+          )}
+
+          <div>
+            {user ? (
+              <div>
+                <h2>Welcome, {user.displayName}!</h2>
+                <p>Your email address is {user.email}.</p>
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
           <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </Form.Group>
-
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="Check me out" />
             </Form.Group>
+
+            <Button variant="primary" onClick={handleSignIn}>
+              Login
+            </Button>
             <Form.Group>
               <Form.Text className="text-muted">
                 If you don't have an account , please
                 <Link
-                  to="Sign-up"
+                  to="signUp"
                   style={{ color: "#737373", marginLeft: 5, color: "red" }}
                 >
                   Sign-up
                 </Link>
               </Form.Text>
             </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
+            <Button variant="Outlined" onClick={handleGoogleSignIn}>
+              {" "}
+              <FcGoogle />
+              Login with Google
             </Button>
           </Form>
         </Container>
       </div>
     </div>
   );
-}
-
-export default BasicExample;
+};
+export default Loginpage;

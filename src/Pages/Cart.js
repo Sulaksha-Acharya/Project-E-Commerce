@@ -143,7 +143,7 @@ const Cart = ({ products, total, onCheckoutClicked }) => {
         >
           <div>
             <Card style={{ padding: 10, width: 300 }}>
-              <h4>Order summary</h4>
+              <h4>Order Summary</h4>
               <Typography variant="h6">Subtotal: {totalSum}</Typography>
               {/* <TableCell>
                 Rs.
