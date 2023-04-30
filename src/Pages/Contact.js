@@ -11,6 +11,7 @@ import { lightBlue, red } from "@mui/material/colors";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { Table, TableBody, TableRow } from "@mui/material";
+import { Col, Row } from "react-bootstrap";
 
 const Contact = () => {
   return (
@@ -24,7 +25,7 @@ const Contact = () => {
         style={{ marginLeft: 160, marginBottom: 140, marginTop: 50 }}
       />
 
-      <iframe
+      {/* <iframe
         src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14130.948231973627!2d85.34462205!3d27.694520599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1681814921257!5m2!1sen!2snp"
         width="400"
         height="300"
@@ -130,6 +131,86 @@ const Contact = () => {
             </CardContent>
           </Box>
         </Card>
+      </Container> */}
+
+      <Container>
+        <Row>
+          <Col
+            sm={12}
+            lg={6}
+            style={{
+              height: "auto",
+              position: "relative",
+              borderRadius: 10,
+              // paddingTop: 30,
+              backgroundColor: "white",
+              boxShadow: "inherit",
+            }}
+          >
+            <Card sx={{ display: "flex" }}>
+              <CardContent>
+                <Typography sx={{ fontSize: 24 }} color="#000" gutterBottom>
+                  Call Us
+                </Typography>
+                <Typography sx={{ fontSize: 18 }} component="div">
+                  90004400044
+                </Typography>
+                <Typography sx={{ fontSize: 18 }} component="div">
+                  87772882288
+                </Typography>
+
+                <Typography
+                  sx={{ fontSize: 24, marginTop: 5.5 }}
+                  color="#000"
+                  gutterBottom
+                >
+                  Location
+                </Typography>
+                <Typography sx={{ fontSize: 18 }} component="div">
+                  asdfghjkl;kaxcvbnm,.
+                </Typography>
+                <Typography sx={{ fontSize: 18 }} component="div">
+                  asdfghjkl;kaxcvbnm,.
+                </Typography>
+
+                <Typography
+                  sx={{ fontSize: 24, marginTop: 5.5 }}
+                  color="#000"
+                  gutterBottom
+                >
+                  Business hours
+                </Typography>
+                <Typography sx={{ fontSize: 18 }} component="div">
+                  Monday to Friday
+                </Typography>
+                <Typography sx={{ fontSize: 18 }} component="div">
+                  LIVE CHAT services are available Sun to Fri: 7 AM to 9 PM and
+                  Sat: 9 AM to 9 PM.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Col>
+          <Col lg={6} sm={12}>
+            {/* <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14130.948231973627!2d85.34462205!3d27.694520599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1681814921257!5m2!1sen!2snp"
+              width="500"
+              height="auto"
+              style={{ marginLeft: "70%" }}
+              // style="border:0;"
+              allowfullScreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe> */}
+            <iframe
+              frameborder="0"
+              scrolling="no"
+              height="450"
+              width="100%"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14130.948231973627!2d85.34462205!3d27.694520599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1681814921257!5m2!1sen!2snp"
+              title="Shop Cart"
+            ></iframe>
+          </Col>
+        </Row>
       </Container>
     </div>
   );
