@@ -85,11 +85,8 @@ const Header = () => {
             <Link to="SignUp" style={{ color: "#737373", marginLeft: 30 }}>
               SignUp
             </Link>
-            <Link to="ContactUs" style={{ color: "#737373", marginLeft: 30 }}>
-              ContactUS
-            </Link>
             {!loggedInUser && (
-              <Link to="Login" style={{ color: "#737373", marginLeft: 30 }}>
+              <Link to="login" style={{ color: "#737373", marginLeft: 30 }}>
                 Login
               </Link>
             )}

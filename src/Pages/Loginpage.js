@@ -117,6 +117,7 @@ const Loginpage = () => {
                 placeholder="Enter email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required={true}
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -126,6 +127,7 @@ const Loginpage = () => {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                required
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicCheckbox">

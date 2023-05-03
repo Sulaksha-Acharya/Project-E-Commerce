@@ -275,8 +275,8 @@ const Home = () => {
       <div>
         <Container>
           <Carousel>
-            {carouselItems?.map((item) => (
-              <Carousel.Item key={item?.title}>
+            {carouselItems?.map((item, index) => (
+              <Carousel.Item key={index}>
                 <img
                   src={item?.image}
                   alt="img"

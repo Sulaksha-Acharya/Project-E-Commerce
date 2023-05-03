@@ -51,6 +51,11 @@ const ItemCard = ({ product }) => {
     );
   };
   const addToWishlist = () => {
+    if (auth) {
+      navigate("/login");
+    } else {
+      navigate("/login");
+    }
     toast.success("Product has been added to wishlist");
 
     dispatch(

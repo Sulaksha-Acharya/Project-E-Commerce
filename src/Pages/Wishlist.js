@@ -20,6 +20,7 @@ import Checkbox from "@mui/material/Checkbox";
 import { CiTrash } from "react-icons/ci";
 import { auth } from "../config/firebase";
 import { useNavigate } from "react-router-dom";
+import { FcApproval } from "react-icons/fc";
 
 const rows = [];
 const Wishlist = ({ products, total, onCheckoutClicked }) => {
@@ -28,15 +29,6 @@ const Wishlist = ({ products, total, onCheckoutClicked }) => {
   const Wishlist = ({ product }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
-    console.log(wishlistItems);
-    const Wishlist = () => {
-      if (auth) {
-        navigate("/login");
-      } else {
-        navigate("/login");
-      }
-    };
     dispatch(
       cartActions.Wishlist({
         ...product,
@@ -92,6 +84,10 @@ const Wishlist = ({ products, total, onCheckoutClicked }) => {
                 </TableCell>
                 <TableCell component="th" scope="row">
                   {product.price}
+                </TableCell>
+                <TableCell component="th" scope="row">
+                  {product.status}
+                  <FcApproval />
                 </TableCell>
               </TableRow>
             ))}
