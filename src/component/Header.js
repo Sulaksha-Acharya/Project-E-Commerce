@@ -16,8 +16,13 @@ import {
   BsFillPersonPlusFill,
 } from 'react-icons/bs'
 import { LinkContainer } from 'react-router-bootstrap'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
+  const [query, setQuery] = useState('')
+  const navigate = useNavigate()
+
   const dispatch = useDispatch()
   const cartItemcount = useSelector(selectItemCount)
 
@@ -25,6 +30,11 @@ const Header = () => {
 
   function logout() {
     dispatch(userActions.logout())
+  }
+
+  function handleSearch(e) {
+    e.preventDefault()
+    navigate(`/search/item?query=${encodeURIComponent(query)}`)
   }
 
   return (
@@ -46,14 +56,18 @@ const Header = () => {
           <Navbar.Toggle aria-controls='navbarScroll' />
           <Navbar.Collapse id='navbarScroll'>
             <Nav className='me-auto'>
-              <Form className='d-flex'>
+              <Form className='d-flex' onSubmit={handleSearch}>
                 <Form.Control
                   type='search'
                   placeholder='Search'
                   aria-label='Search'
                   className='me-2'
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
                 />
-                <Button variant='outline-success'>Search</Button>
+                <Button variant='outline-success' type='submit'>
+                  Search
+                </Button>
               </Form>
             </Nav>
 

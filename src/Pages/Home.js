@@ -27,6 +27,226 @@ import ItemCard from '../component/ItemCard'
 import Container from 'react-bootstrap/Container'
 import { Grid, TableHead } from '@mui/material'
 
+export const latestProducts = [
+  {
+    title: 'New Product A',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: a,
+    price: 200,
+    id: 1,
+  },
+  {
+    title: 'Sony Headphone',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: ddd,
+    price: 2000,
+    id: 2,
+  },
+  {
+    title: 'New Product C',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: nm,
+    price: 200,
+    id: 3,
+  },
+  {
+    title: 'New Product D',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: shoes,
+    price: 300,
+    id: 4,
+  },
+  {
+    title: 'New Product E',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: kid1,
+    price: 500,
+    id: 5,
+  },
+  {
+    title: 'New Product F',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: kid2,
+    price: 500,
+    id: 6,
+  },
+  {
+    title: 'New Product G',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: kid3,
+    price: 500,
+    id: 7,
+  },
+  {
+    title: 'New Product H',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: kid4,
+    price: 500,
+    id: 8,
+  },
+
+  {
+    title: 'New Product I',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: del,
+    price: 500,
+    id: 9,
+  },
+  {
+    title: 'New Product J',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: ddd,
+    price: 500,
+    id: 10,
+  },
+  {
+    title: 'New Product K',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: iphone,
+    price: 500,
+    id: 11,
+  },
+  {
+    title: 'New Product L',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: watch,
+    price: 500,
+    id: 5,
+  },
+  {
+    title: 'New Product M',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: kid1,
+    price: 500,
+    id: 5,
+  },
+  {
+    title: 'New Product N',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: kid2,
+    price: 500,
+    id: 5,
+  },
+  {
+    title: 'New Product O',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: kid3,
+    price: 500,
+    id: 5,
+  },
+  {
+    title: 'New Product P',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: kid4,
+    price: 500,
+    id: 5,
+  },
+  {
+    title: 'New Product Q',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: k1,
+    price: 500,
+    id: 5,
+  },
+  {
+    title: 'New Product R',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: g1,
+    price: 500,
+    id: 5,
+  },
+  {
+    title: 'New Product S',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: k2,
+    price: 500,
+    id: 5,
+  },
+  {
+    title: 'New Product S',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: b6,
+    price: 500,
+    id: 5,
+  },
+  {
+    title: 'New Product T',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: b4,
+    price: 500,
+    id: 5,
+  },
+  {
+    title: 'New Product U',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: b3,
+    price: 500,
+    id: 5,
+  },
+  {
+    title: 'New Product U',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: b5,
+    price: 500,
+    id: 5,
+  },
+  {
+    title: 'New Product U',
+    // description:
+    //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
+
+    image: b7,
+    price: 500,
+    id: 5,
+  },
+]
+
 const Home = () => {
   const [addto, setHome] = useState('')
 
@@ -44,226 +264,6 @@ const Home = () => {
     },
     {
       image: c,
-    },
-  ]
-
-  const latestProducts = [
-    {
-      title: 'New Product A',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: a,
-      price: 200,
-      id: 1,
-    },
-    {
-      title: 'New Product B',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: ddd,
-      price: 2000,
-      id: 2,
-    },
-    {
-      title: 'New Product C',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: nm,
-      price: 200,
-      id: 3,
-    },
-    {
-      title: 'New Product D',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: shoes,
-      price: 300,
-      id: 4,
-    },
-    {
-      title: 'New Product E',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: kid1,
-      price: 500,
-      id: 5,
-    },
-    {
-      title: 'New Product F',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: kid2,
-      price: 500,
-      id: 6,
-    },
-    {
-      title: 'New Product G',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: kid3,
-      price: 500,
-      id: 7,
-    },
-    {
-      title: 'New Product H',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: kid4,
-      price: 500,
-      id: 8,
-    },
-
-    {
-      title: 'New Product I',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: del,
-      price: 500,
-      id: 9,
-    },
-    {
-      title: 'New Product J',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: ddd,
-      price: 500,
-      id: 10,
-    },
-    {
-      title: 'New Product K',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: iphone,
-      price: 500,
-      id: 11,
-    },
-    {
-      title: 'New Product L',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: watch,
-      price: 500,
-      id: 5,
-    },
-    {
-      title: 'New Product M',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: kid1,
-      price: 500,
-      id: 5,
-    },
-    {
-      title: 'New Product N',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: kid2,
-      price: 500,
-      id: 5,
-    },
-    {
-      title: 'New Product O',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: kid3,
-      price: 500,
-      id: 5,
-    },
-    {
-      title: 'New Product P',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: kid4,
-      price: 500,
-      id: 5,
-    },
-    {
-      title: 'New Product Q',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: k1,
-      price: 500,
-      id: 5,
-    },
-    {
-      title: 'New Product R',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: g1,
-      price: 500,
-      id: 5,
-    },
-    {
-      title: 'New Product S',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: k2,
-      price: 500,
-      id: 5,
-    },
-    {
-      title: 'New Product S',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: b6,
-      price: 500,
-      id: 5,
-    },
-    {
-      title: 'New Product T',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: b4,
-      price: 500,
-      id: 5,
-    },
-    {
-      title: 'New Product U',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: b3,
-      price: 500,
-      id: 5,
-    },
-    {
-      title: 'New Product U',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: b5,
-      price: 500,
-      id: 5,
-    },
-    {
-      title: 'New Product U',
-      // description:
-      //   " Model : Inspiron 14 5420 Keep the conversation going with this 35.56cm (14 Inch) laptop. Features an FHD camera, dual mics with AI noise reduction & latest 12th Gen Intel® Core™ proces",
-
-      image: b7,
-      price: 500,
-      id: 5,
     },
   ]
 

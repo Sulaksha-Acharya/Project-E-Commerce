@@ -18,6 +18,8 @@ import SignUpPage from './Pages/SignUpPage'
 import Header from './component/Header'
 import Footer from './component/Footer'
 import Cart from './Pages/Cart'
+import SearchPage from './Pages/SearchPage'
+
 // import Checkout from "./Pages/Checkout";
 import { ToastContainer } from 'react-toastify'
 import Loginpage from './Pages/Loginpage'
@@ -39,6 +41,7 @@ const App = () => {
         <Route path='/login' element={<Loginpage />} />
         <Route path='/wishlist' element={<Wishlist />} />
         <Route path='/cart' element={<Cart />} />
+        <Route path='/search/item' element={<SearchPage />} />
       </Routes>
 
       <Footer />
