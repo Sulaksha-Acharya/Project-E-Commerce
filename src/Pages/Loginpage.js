@@ -47,19 +47,6 @@ const Loginpage = () => {
         console.log(err);
       });
   };
-  // const GoogleSignIn = async () => {
-  //   GoogleSignIn()
-  //     .then((res) => {
-  //       console.log({ googleRes: res });
-  //       return;
-  //       dispatch(userActions.loginUser(res));
-  //       navigate("/");
-  //     })
-
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
 
   const [user, setUser] = useState(null);
 
@@ -69,9 +56,7 @@ const Loginpage = () => {
     try {
       const result = await signInWithPopup(auth, provider);
       dispatch(userActions.loginUser(result.user));
-      // console.log({ result });
-      // return;
-      // setUser(result.user);
+
       navigate("/");
     } catch (error) {
       console.error(error);
