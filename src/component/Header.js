@@ -1,134 +1,166 @@
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import { useDispatch, useSelector } from "react-redux";
-import { selectUserInfo, userActions } from "../store/user-slice";
-import logo from "../asset/logo.png";
-import { selectItemCount } from "../store/cart-slice";
-import { Badge } from "react-bootstrap";
+import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
+import Form from 'react-bootstrap/Form'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+import NavDropdown from 'react-bootstrap/NavDropdown'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectUserInfo, userActions } from '../store/user-slice'
+import logo from '../asset/logo.png'
+import { selectItemCount } from '../store/cart-slice'
+import { Badge } from 'react-bootstrap'
 import {
   BsFillCartFill,
   BsFillHeartFill,
   BsFillPersonFill,
   BsFillPersonPlusFill,
-} from "react-icons/bs";
-import { LinkContainer } from "react-router-bootstrap";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+  BsBoxArrowInRight,
+} from 'react-icons/bs'
+import { LinkContainer } from 'react-router-bootstrap'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
-  const [query, setQuery] = useState("");
-  const navigate = useNavigate();
+  const [query, setQuery] = useState('')
+  const navigate = useNavigate()
 
-  const dispatch = useDispatch();
-  const cartItemcount = useSelector(selectItemCount);
+  const dispatch = useDispatch()
+  const cartItemcount = useSelector(selectItemCount)
 
-  const loggedInUser = useSelector(selectUserInfo);
+  const loggedInUser = useSelector(selectUserInfo)
 
   function logout() {
-    dispatch(userActions.logout());
+    dispatch(userActions.logout())
   }
 
   function handleSearch(e) {
-    e.preventDefault();
-    navigate(`/search/item?query=${encodeURIComponent(query)}`);
+    e.preventDefault()
+    navigate(`/search/item?query=${encodeURIComponent(query)}`)
   }
 
   return (
     <div>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg='light' expand='lg'>
         <Container>
-          <LinkContainer to="/">
+          <LinkContainer to='/'>
             <Navbar.Brand>
               <img
-                className="logo"
+                className='logo'
                 src={logo}
-                alt="img"
-                width={50}
+                alt='img'
+                width={150}
                 height={30}
-                style={{ marginBottom: 20 }}
+                // style={{ marginBottom: 20 }}
               />
             </Navbar.Brand>
           </LinkContainer>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Nav className="me-auto">
-              <Form className="d-flex" onSubmit={handleSearch}>
+          <Navbar.Toggle aria-controls='navbarScroll' />
+          <Navbar.Collapse id='navbarScroll'>
+            <Nav className='me-auto'>
+              <Form className='d-flex' onSubmit={handleSearch}>
                 <Form.Control
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                  className="me-2"
+                  type='search'
+                  placeholder='Search'
+                  aria-label='Search'
+                  className='me-2'
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                 />
-                <Button variant="outline-success" type="submit">
+                <Button variant='outline-success' type='submit'>
                   Search
                 </Button>
               </Form>
             </Nav>
 
             <Nav
-              className="my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
+              className='my-2 my-lg-0'
+              style={{ maxHeight: '100px' }}
               navbarScroll
             >
-              <LinkContainer to="/about">
+              <LinkContainer to='/about'>
                 <Nav.Link>About</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/contact">
+              <LinkContainer to='/contact'>
                 <Nav.Link>Contact</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/WishList">
+              <LinkContainer to='/WishList'>
                 <Nav.Link>
                   <BsFillHeartFill
-                    style={{ marginRight: "5px", color: "red" }}
+                    style={{
+                      marginRight: '5px',
+                      color: 'red',
+                      fontSize: '20px',
+                    }}
                   ></BsFillHeartFill>
                   Wishlist
                 </Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/cart">
+              <LinkContainer to='/cart'>
                 <Nav.Link>
                   <BsFillCartFill
-                    style={{ marginBottom: "5px", color: "red" }}
-                  />{" "}
+                    style={{
+                      marginBottom: '5px',
+                      color: '#002984',
+                      fontSize: '20px',
+                    }}
+                  />{' '}
                   Cart
-                  <Badge bg="primary" style={{ marginLeft: "3px" }}>
+                  <Badge bg='primary' style={{ marginLeft: '3px' }}>
                     {cartItemcount}
                   </Badge>
                 </Nav.Link>
               </LinkContainer>
               {loggedInUser ? (
-                <NavDropdown title="Profile" id="navbarScrollingDropdown">
-                  {/* <LinkContainer to='/orders'>
-                    <NavDropdown.Item>Orders</NavDropdown.Item>
-                  </LinkContainer> */}
-                  <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
-                </NavDropdown>
+                <>
+                  {/* <NavDropdown title='Profile' id='navbarScrollingDropdown'>
+                    <LinkContainer to='/orders'>
+                      <NavDropdown.Item>Orders</NavDropdown.Item>
+                    </LinkContainer>
+                    <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
+                  </NavDropdown> */}
+                  <Nav.Link onClick={logout}>
+                    <BsBoxArrowInRight
+                      style={{
+                        marginRight: '5px',
+                        color: 'red',
+                        fontSize: '20px',
+                      }}
+                    ></BsBoxArrowInRight>
+                    Logout
+                  </Nav.Link>
+                  <div style={{ padding: '8px', fontWeight: 600 }}>
+                    Welcome,{' '}
+                    {loggedInUser && loggedInUser.displayName
+                      ? loggedInUser.displayName
+                      : loggedInUser.email}
+                  </div>
+                </>
               ) : (
-                ""
+                ''
               )}
 
               {!loggedInUser && (
                 <>
-                  <LinkContainer to="/login">
+                  <LinkContainer to='/login'>
                     <Nav.Link>
                       <BsFillPersonFill
-                        style={{ marginBottom: "5px", color: "red" }}
+                        style={{
+                          marginBottom: '5px',
+                          color: 'red',
+                          fontSize: '20px',
+                        }}
                       />
                       Log in
                     </Nav.Link>
                   </LinkContainer>
-                  <LinkContainer to="/SignUP">
+                  <LinkContainer to='/SignUP'>
                     <Nav.Link>
                       <BsFillPersonPlusFill
                         style={{
-                          marginBottom: "5px",
-                          marginRight: "2px",
-                          color: "red",
+                          marginBottom: '5px',
+                          marginRight: '2px',
+                          color: 'red',
+                          fontSize: '20px',
                         }}
                       />
                       Sign up
@@ -141,7 +173,7 @@ const Header = () => {
         </Container>
       </Navbar>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

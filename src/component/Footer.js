@@ -77,8 +77,8 @@ const Footer = () => (
               className='logo'
               src={logo}
               alt='img'
-              width={50}
-              height={55}
+              width={150}
+              height={35}
               style={{ marginRight: 30 }}
             />
             <b> Happy Shopping!</b>
