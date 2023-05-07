@@ -81,32 +81,31 @@ const ItemCard = ({ product }) => {
         <Typography variant='subtitle' component='div' sx={{ px: 1, pt: 1 }}>
           {product.title}
         </Typography>
+        <Typography variant='h6' component='div' sx={{ px: 1, pt: 1 }}>
+          Rs: {product.price}
+        </Typography>
 
-        <CardActions>
-          <Container>
-            <Row className='p-0'>
-              <Col className='text-left'>
-                <IconButton size='small'>
-                  <FcLike
-                    onClick={() => {
-                      setShowBasicModal(true)
-                    }}
-                  />
-                </IconButton>
-              </Col>
-              <Col className='text-right'>
-                <IconButton
-                  size='small'
-                  onClick={addToCart}
-                  style={{ color: 'rgb(244, 67, 54)', float: 'right' }}
-                  className='me-2'
-                >
-                  <BsCartFill />
-                </IconButton>
-              </Col>
-            </Row>
-          </Container>
-        </CardActions>
+        <Row className='py-2'>
+          <Col className='text-left'>
+            <IconButton size='small'>
+              <FcLike
+                onClick={() => {
+                  setShowBasicModal(true)
+                }}
+              />
+            </IconButton>
+          </Col>
+          <Col className='text-right'>
+            <IconButton
+              size='small'
+              onClick={addToCart}
+              style={{ color: 'rgb(244, 67, 54)', float: 'right' }}
+              className='me-2'
+            >
+              <BsCartFill />
+            </IconButton>
+          </Col>
+        </Row>
       </Card>
 
       {showBasicModal && (

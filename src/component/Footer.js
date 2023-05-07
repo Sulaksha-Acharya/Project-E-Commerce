@@ -13,7 +13,6 @@ const Footer = () => (
       style={{
         backgroundColor: 'rgba(0, 82, 93, 0.2)',
         display: 'flex',
-        marginTop: 50,
       }}
     >
       <Container>

@@ -21,6 +21,7 @@ import { TableBody, TableCell, TableHead, TableRow } from '@mui/material'
 // import { FaHeart } from "react-icons/fa";
 import { Typography } from '@mui/material'
 import Checkbox from '@mui/material/Checkbox'
+import notFound from '../asset/notFound.png'
 
 const Cart = ({ products, total, onCheckoutClicked }) => {
   const cartItems = useSelector(selectItemlist)
@@ -57,80 +58,108 @@ const Cart = ({ products, total, onCheckoutClicked }) => {
 
   return (
     <div>
-      <Container>
+      <Container className='mb-5'>
         <h2 style={{ textAlign: 'center', marginTop: '20px' }}>Your Cart</h2>
 
-        <br></br>
-        <Table sx={{ minWidth: 250 }}>
-          <TableHead>
-            <TableRow></TableRow>
-          </TableHead>
-          <TableBody>
-            {cartItems?.map((product) => (
-              <TableRow
-                key={product.title}
-                sx={{
-                  '&:last-child td, &:last-child th': {
-                    border: 0,
-                  },
-                }}
-              >
-                <TableCell component='th' scope='row'>
-                  <img
-                    style={{
-                      width: '220px',
-                      height: '140px',
-                      objectFit: 'cover',
-                      marginRight: 15,
-                    }}
-                    src={product.image}
-                    alt={'productImage'}
-                  />
-
-                  {product.title}
-                  {/* <TableCell><Checkbox defaultChecked /></TableCell> */}
-                </TableCell>
-                <TableCell component='th' scope='row'>
-                  <Typography variant='h6'>RS.</Typography>
-                  {product.price}
-
-                  {/* <FaHeart /> */}
-                </TableCell>
-                <TableCell>
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '10px',
+        {cartItems && cartItems.length > 0 ? (
+          <Card style={{ padding: 10, width: '100%' }}>
+            <Table sx={{ minWidth: 250 }}>
+              <TableHead>
+                <TableRow></TableRow>
+              </TableHead>
+              <TableBody>
+                {cartItems?.map((product) => (
+                  <TableRow
+                    key={product.title}
+                    sx={{
+                      '&:last-child td, &:last-child th': {
+                        border: 0,
+                      },
                     }}
                   >
-                    <button
-                      onClick={() =>
-                        dispatch(cartActions.addProductQuantity(product))
-                      }
-                    >
-                      +
-                    </button>
-                    {product.quantity}
-                    <button
-                      disabled={product.quantity <= 1}
-                      onClick={() =>
-                        dispatch(cartActions.removeProductQuantity(product))
-                      }
-                    >
-                      -
-                    </button>
-                  </div>
-                </TableCell>
+                    <TableCell component='th' scope='row'>
+                      <img
+                        style={{
+                          width: '220px',
+                          height: '140px',
+                          objectFit: 'cover',
+                          marginRight: 15,
+                        }}
+                        src={product.image}
+                        alt={'productImage'}
+                      />
 
-                <TableCell>
-                  Rs.
-                  {product?.quantity * product?.price}
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+                      {product.title}
+                      {/* <TableCell><Checkbox defaultChecked /></TableCell> */}
+                    </TableCell>
+                    <TableCell component='th' scope='row'>
+                      <Typography variant='h6'>RS.</Typography>
+                      {product.price}
+
+                      {/* <FaHeart /> */}
+                    </TableCell>
+                    <TableCell>
+                      <div
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '10px',
+                        }}
+                      >
+                        <button
+                          onClick={() =>
+                            dispatch(cartActions.addProductQuantity(product))
+                          }
+                        >
+                          +
+                        </button>
+                        {product.quantity}
+                        <button
+                          disabled={product.quantity <= 1}
+                          onClick={() =>
+                            dispatch(cartActions.removeProductQuantity(product))
+                          }
+                        >
+                          -
+                        </button>
+                      </div>
+                    </TableCell>
+
+                    <TableCell>
+                      Rs.
+                      {product?.quantity * product?.price}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </Card>
+        ) : (
+          <>
+            <Card style={{ padding: 10, width: '100%' }}>
+              <div
+                style={{
+                  textAlign: 'center',
+                  marginTop: '20px',
+                  marginBottom: '20px',
+                }}
+              >
+                <img
+                  src={notFound}
+                  alt='not found'
+                  loading='lazy'
+                  width='30%'
+                  textAlign='center'
+                  alignItems='center'
+                />
+                <h5 style={{ textAlign: 'center', paddingBottom: '20px' }}>
+                  No Product in your cart.
+                </h5>
+              </div>
+            </Card>
+          </>
+        )}
+
         <br></br>
         <div
           style={{

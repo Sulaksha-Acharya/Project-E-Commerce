@@ -19,6 +19,7 @@ import {
 import { LinkContainer } from 'react-router-bootstrap'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const Header = () => {
   const [query, setQuery] = useState('')
@@ -31,6 +32,7 @@ const Header = () => {
 
   function logout() {
     dispatch(userActions.logout())
+    toast.success('Successfully logged out')
   }
 
   function handleSearch(e) {

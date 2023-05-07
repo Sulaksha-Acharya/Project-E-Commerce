@@ -33,7 +33,7 @@ function SignUpPage() {
   return (
     <div style={{ backgroundColor: 'lightblue', padding: 50 }}>
       <div>
-        <h3 style={{ textAlign: 'center' }}>Sign up to ShopCard</h3>
+        <h3 style={{ textAlign: 'center' }}>Sign up to ShopCart !</h3>
 
         <Container
           style={{

@@ -270,8 +270,8 @@ const Home = () => {
   return (
     <div>
       <div>
-        <Container className='mt-3'>
-          <h1 style={{ textAlign: 'center' }}>
+        <Container className='mt-5'>
+          <h1 style={{ textAlign: 'center', marginBottom: '30px' }}>
             <b>Welcome to ShopCart</b>
           </h1>
           <Carousel>
@@ -290,25 +290,33 @@ const Home = () => {
           </Carousel>
         </Container>
       </div>
-      <div>
-        <h1 style={{ textAlign: 'center' }}>
-          <b>See the latest Outfit</b>
-        </h1>
-        <p style={{ textAlign: 'center' }}>
-          <i>Explore our New Arrivals</i>
-        </p>
+      <Container className='mt-5'>
+        <div>
+          <div style={{ marginBottom: '30px' }}>
+            <h1
+            // style={{ textAlign: 'center' }}
+            >
+              See the latest Outfit
+            </h1>
+            <p
+            // style={{ textAlign: 'center' }}
+            >
+              <i>Explore our New Arrivals</i>
+            </p>
+          </div>
 
-        {/* <Container style={{ display: "flex", gap: 15 }}> */}
-        <Container className='mt-3'>
-          <Grid container spacing={3}>
-            {latestProducts?.map((product) => (
-              <Grid item xs={2} key={product.title}>
-                <ItemCard product={product} />
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </div>
+          {/* <Container style={{ display: "flex", gap: 15 }}> */}
+          <Container className='mt-3 mb-5'>
+            <Grid container spacing={3}>
+              {latestProducts?.map((product) => (
+                <Grid item xs={2} key={product.title}>
+                  <ItemCard product={product} />
+                </Grid>
+              ))}
+            </Grid>
+          </Container>
+        </div>
+      </Container>
     </div>
   )
 }
