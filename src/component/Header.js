@@ -1,132 +1,133 @@
-import { Badge, Button, ListItem, TextField } from "@mui/material";
-import React from "react";
-import { Form, Nav, Navbar, NavDropdown, NavLink } from "react-bootstrap";
-import logo from "../asset/logo.png";
-import { FaHeart, FaShoppingCart, FaUser, FaShoppingBag } from "react-icons/fa";
-import { Container } from "@mui/system";
-import { useDispatch, useSelector } from "react-redux";
-import { selectItemCount } from "../store/cart-slice";
-import { red } from "@mui/material/colors";
-import { currentUser } from "../config/firebase";
-import { Link, useHistory } from "react-router-dom";
-import { selectUserInfo, userActions } from "../store/user-slice";
+import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
+import Form from 'react-bootstrap/Form'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+import NavDropdown from 'react-bootstrap/NavDropdown'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectUserInfo, userActions } from '../store/user-slice'
+import logo from '../asset/logo.png'
+import { selectItemCount } from '../store/cart-slice'
+import { Badge } from 'react-bootstrap'
+import {
+  BsFillCartFill,
+  BsFillHeartFill,
+  BsFillPersonFill,
+  BsFillPersonPlusFill,
+} from 'react-icons/bs'
+import { LinkContainer } from 'react-router-bootstrap'
 
 const Header = () => {
-  const dispatch = useDispatch();
-  const cartItemcount = useSelector(selectItemCount);
+  const dispatch = useDispatch()
+  const cartItemcount = useSelector(selectItemCount)
 
-  const loggedInUser = useSelector(selectUserInfo);
+  const loggedInUser = useSelector(selectUserInfo)
 
   function logout() {
-    dispatch(userActions.logout());
+    dispatch(userActions.logout())
   }
 
   return (
     <div>
-      <Navbar
-        style={{
-          fontSize: 18,
-          maxWidth: "1170px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "left",
-          flexDirection: "row",
-          marginLeft: "auto",
-          marginRight: "auto",
-        }}
-      >
-        <Link to="/">
-          <img
-            className="logo"
-            src={logo}
-            alt="img"
-            width={70}
-            height={70}
-            style={{ marginBottom: 20 }}
-          />
-        </Link>
-
-        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-          <Nav style={{ display: "flex", float: "left" }}>
-            <Link to="about" style={{ color: "#737373", marginLeft: 30 }}>
-              About
-            </Link>
-            <Link to="contact" style={{ color: "#737373", marginLeft: 30 }}>
-              <FaUser /> ContactUs
-            </Link>
-
-            <div>
-              <input
-                placeholder="Search for products,brands and more"
-                style={{
-                  marginLeft: 15,
-                  marginRight: 30,
-                  height: 30,
-                  width: "400px",
-                }}
+      <Navbar bg='light' expand='lg'>
+        <Container>
+          <LinkContainer to='/'>
+            <Navbar.Brand>
+              <img
+                className='logo'
+                src={logo}
+                alt='img'
+                width={50}
+                height={30}
+                style={{ marginBottom: 20 }}
               />
-            </div>
-            <Link to="Wishlist" style={{ color: "#737373", marginLeft: 60 }}>
-              Wishlist
-            </Link>
-            <Link
-              to="cart"
-              style={{
-                color: "#737373",
-                marginLeft: 30,
-                backgroundcolor: red,
-              }}
+            </Navbar.Brand>
+          </LinkContainer>
+          <Navbar.Toggle aria-controls='navbarScroll' />
+          <Navbar.Collapse id='navbarScroll'>
+            <Nav className='me-auto'>
+              <Form className='d-flex'>
+                <Form.Control
+                  type='search'
+                  placeholder='Search'
+                  aria-label='Search'
+                  className='me-2'
+                />
+                <Button variant='outline-success'>Search</Button>
+              </Form>
+            </Nav>
+
+            <Nav
+              className='my-2 my-lg-0'
+              style={{ maxHeight: '100px' }}
+              navbarScroll
             >
-              <Badge badgeContent={cartItemcount} color="primary">
-                {" "}
-                <FaShoppingCart />{" "}
-              </Badge>
-            </Link>
-            <Link to="SignUp" style={{ color: "#737373", marginLeft: 30 }}>
-              SignUp
-            </Link>
-            {!loggedInUser && (
-              <Link to="login" style={{ color: "#737373", marginLeft: 30 }}>
-                Login
-              </Link>
-            )}
-            {/* {!handleGoogleSignIn && (
-              <Link to="Login" style={{ color: "#737373", marginLeft: 30 }}>
-                Login
-              </Link>
-            )} */}
-            <NavDropdown
-              title="Profile"
-              // title={!currentUser ? "Profile" : currentUser?.email}
-              style={{
-                color: "#737373",
-                marginRight: 70,
-                marginInline: 12,
-                marginTop: -7,
-                marginBottom: 12,
-              }}
-            >
+              <LinkContainer to='/about'>
+                <Nav.Link>About</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to='/contact'>
+                <Nav.Link>Contact</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to='/WishList'>
+                <Nav.Link>
+                  <BsFillHeartFill
+                    style={{ marginRight: '5px', color: 'red' }}
+                  ></BsFillHeartFill>
+                  Wishlist
+                </Nav.Link>
+              </LinkContainer>
+              <LinkContainer to='/cart'>
+                <Nav.Link>
+                  <BsFillCartFill
+                    style={{ marginBottom: '5px', color: 'red' }}
+                  />{' '}
+                  Cart
+                  <Badge bg='primary' style={{ marginLeft: '3px' }}>
+                    {cartItemcount}
+                  </Badge>
+                </Nav.Link>
+              </LinkContainer>
               {loggedInUser ? (
-                <>
-                  <NavDropdown.Item href="orders"> Orders</NavDropdown.Item>{" "}
-                  <NavDropdown.Item href="contact">Contact us</NavDropdown.Item>{" "}
-                  <NavDropdown.Item href="wishlist"> Wishlist</NavDropdown.Item>
-                  <NavDropdown.Item onClick={logout}>
-                    {" "}
-                    Logout
-                  </NavDropdown.Item>{" "}
-                </>
+                <NavDropdown title='Profile' id='navbarScrollingDropdown'>
+                  <LinkContainer to='/orders'>
+                    <NavDropdown.Item>Orders</NavDropdown.Item>
+                  </LinkContainer>
+                  <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
+                </NavDropdown>
               ) : (
+                ''
+              )}
+
+              {!loggedInUser && (
                 <>
-                  {/* <NavDropdown.Item href="signUp">SignUp</NavDropdown.Item> */}
+                  <LinkContainer to='/login'>
+                    <Nav.Link>
+                      <BsFillPersonFill
+                        style={{ marginBottom: '5px', color: 'red' }}
+                      />
+                      Log in
+                    </Nav.Link>
+                  </LinkContainer>
+                  <LinkContainer to='/SignUP'>
+                    <Nav.Link>
+                      <BsFillPersonPlusFill
+                        style={{
+                          marginBottom: '5px',
+                          marginRight: '2px',
+                          color: 'red',
+                        }}
+                      />
+                      Sign up
+                    </Nav.Link>
+                  </LinkContainer>
                 </>
               )}
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
       </Navbar>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
