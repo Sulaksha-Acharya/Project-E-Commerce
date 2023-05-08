@@ -55,7 +55,7 @@ const Checkout = () => {
     e.preventDefault()
     console.log(formData)
     // You can add your logic to handle the form submission here
-    toast.success('Product has been added to cart')
+    toast.success('You order has been placed successfully.')
     navigate('/')
   }
   const totalSum = cartItems.reduce((acc, item) => {
