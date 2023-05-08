@@ -178,40 +178,44 @@ const Cart = ({ products, total, onCheckoutClicked }) => {
         )}
 
         <br></br>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'flex-end',
-            flexDirection: 'row',
-          }}
-        >
-          <div>
-            <Card style={{ padding: 10, width: 300 }}>
-              <h4>Order Summary</h4>
-              <Typography variant='h6'>Subtotal: {totalSum}</Typography>
-              {/* <TableCell>
+        {cartItems && cartItems.length > 0 ? (
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'flex-end',
+              flexDirection: 'row',
+            }}
+          >
+            <div>
+              <Card style={{ padding: 10, width: 300 }}>
+                <h4>Order Summary</h4>
+                <Typography variant='h6'>Subtotal: {totalSum}</Typography>
+                {/* <TableCell>
                 Rs.
                 {Product?.price * Product?.quantity}
               </TableCell> */}
-              <Typography variant='h6'>Shipping Fee: 200</Typography>
-              <Typography variant='h6'> Total: {totalSum + 200} </Typography>
-            </Card>{' '}
-            <br></br>
-            <Button
-              variant='primary'
-              size='lg'
-              color='#fff'
-              style={{ color: '#fff' }}
-            >
-              <Link
-                to='/checkout'
-                style={{ color: '#fff', textDecoration: 'none' }}
+                <Typography variant='h6'>Shipping Fee: 200</Typography>
+                <Typography variant='h6'> Total: {totalSum + 200} </Typography>
+              </Card>{' '}
+              <br></br>
+              <Button
+                variant='primary'
+                size='lg'
+                color='#fff'
+                style={{ color: '#fff' }}
               >
-                Proceed To Buy
-              </Link>
-            </Button>
+                <Link
+                  to='/checkout'
+                  style={{ color: '#fff', textDecoration: 'none' }}
+                >
+                  Proceed To Buy
+                </Link>
+              </Button>
+            </div>
           </div>
-        </div>
+        ) : (
+          ' '
+        )}
       </Container>
     </div>
   )
