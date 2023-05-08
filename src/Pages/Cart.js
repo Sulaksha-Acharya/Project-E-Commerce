@@ -22,6 +22,7 @@ import { TableBody, TableCell, TableHead, TableRow } from '@mui/material'
 import { Typography } from '@mui/material'
 import Checkbox from '@mui/material/Checkbox'
 import notFound from '../asset/notFound.png'
+import { Link } from 'react-router-dom'
 
 const Cart = ({ products, total, onCheckoutClicked }) => {
   const cartItems = useSelector(selectItemlist)
@@ -180,9 +181,19 @@ const Cart = ({ products, total, onCheckoutClicked }) => {
               <Typography variant='h6'> Total: {totalSum + 200} </Typography>
             </Card>{' '}
             <br></br>
-            <Button variant='primary' size='lg'>
-              Proceed To Buy
-            </Button>{' '}
+            <Button
+              variant='primary'
+              size='lg'
+              color='#fff'
+              style={{ color: '#fff' }}
+            >
+              <Link
+                to='/checkout'
+                style={{ color: '#fff', textDecoration: 'none' }}
+              >
+                Proceed To Buy
+              </Link>
+            </Button>
           </div>
         </div>
       </Container>

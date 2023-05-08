@@ -24,6 +24,7 @@ import SearchPage from './Pages/SearchPage'
 import { ToastContainer } from 'react-toastify'
 import Loginpage from './Pages/Loginpage'
 import 'react-toastify/dist/ReactToastify.css'
+import Checkout from './Pages/Checkout'
 
 const App = () => {
   return (
@@ -42,6 +43,7 @@ const App = () => {
         <Route path='/wishlist' element={<Wishlist />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/search/item' element={<SearchPage />} />
+        <Route path='/checkout' element={<Checkout />} />
       </Routes>
 
       <Footer />
