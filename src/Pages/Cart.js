@@ -23,6 +23,7 @@ import { Typography } from '@mui/material'
 import Checkbox from '@mui/material/Checkbox'
 import notFound from '../asset/notFound.png'
 import { Link } from 'react-router-dom'
+import { CiTrash } from 'react-icons/ci'
 
 const Cart = ({ products, total, onCheckoutClicked }) => {
   const cartItems = useSelector(selectItemlist)
@@ -59,7 +60,7 @@ const Cart = ({ products, total, onCheckoutClicked }) => {
 
   return (
     <div>
-      <Container className='mb-5'>
+      <Container className='mb-5' style={{ minHeight: '55vh' }}>
         <h2 style={{ textAlign: 'center', marginTop: '20px' }}>Your Cart</h2>
 
         {cartItems && cartItems.length > 0 ? (
@@ -129,6 +130,21 @@ const Cart = ({ products, total, onCheckoutClicked }) => {
                     <TableCell>
                       Rs.
                       {product?.quantity * product?.price}
+                    </TableCell>
+
+                    <TableCell>
+                      <CiTrash
+                        // onClick={() => {
+                        //   setShowBasicModal(true)
+                        // }}
+                        style={{
+                          fontSize: '25px',
+                          color: 'rgb(244, 67, 54)',
+                          float: 'right',
+                        }}
+                        className='me-2'
+                      />
+                      {/* <Checkbox defaultChecked /> */}
                     </TableCell>
                   </TableRow>
                 ))}
