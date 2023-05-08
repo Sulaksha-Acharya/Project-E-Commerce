@@ -224,9 +224,6 @@ const Checkout = () => {
                             src={product.image}
                             alt={'productImage'}
                           />
-
-                          {product.title}
-                          {/* <TableCell><Checkbox defaultChecked /></TableCell> */}
                         </TableCell>
                         <TableCell component='th' scope='row'>
                           <Typography variant='h6'>RS.</Typography>
