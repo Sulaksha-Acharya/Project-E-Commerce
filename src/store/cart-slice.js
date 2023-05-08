@@ -76,8 +76,9 @@ const cartSlice = createSlice({
       );
 
       if (existingItem) {
-        existingItem.quantity++;
-        existingItem.price += newItem.price;
+        state.wishlist = state.wishlist.filter((p) => p.id !== existingItem.id);
+        // existingItem.quantity++;
+        // existingItem.price += newItem.price;
       } else {
         state.wishlist.push({
           ...action.payload,
