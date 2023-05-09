@@ -7,7 +7,7 @@ import { Grid, Typography } from '@mui/material'
 const Contact = () => {
   return (
     <div>
-      <Container className='mt-5'>
+      <Container className='mt-5 mb-5'>
         <img
           className='contactus'
           src={contactus}
