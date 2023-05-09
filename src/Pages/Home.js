@@ -4,30 +4,29 @@ import a from "../asset/a.png";
 import b from "../asset/b.png";
 import w from "../asset/w.jpeg";
 import w3 from "../asset/w3.jpg";
+import w1 from "../asset/w1.jpg";
+import w4 from "../asset/w4.jpg";
 import c from "../asset/c.png";
-import ddd from "../asset/ddd.jpg";
-import c1 from "../asset/c1.jpg";
 import m2 from "../asset/m2.jpg";
 import m from "../asset/m.jpg";
-import m1 from "../asset/m1.jpg";
 import k1 from "../asset/k1.jpg";
 import k2 from "../asset/k2.jpg";
-import g1 from "../asset/g1.jpg";
-import kid1 from "../asset/kid1.jpg";
-import kid2 from "../asset/kid2.jpg";
+import E1 from "../asset/E1.jpg";
 import kid3 from "../asset/kid3.jpg";
-import kid4 from "../asset/kid4.jpg";
-import b5 from "../asset/b5.jpeg";
+import kid2 from "../asset/kid2.jpg";
+import b1 from "../asset/b1.jpg";
 import b3 from "../asset/b3.jpeg";
-import b4 from "../asset/b4.jpg";
-import b6 from "../asset/b6.jpeg";
-import b7 from "../asset/b7.jpeg";
-
-import watch from "../asset/watch.jpg";
+import Iphone14 from "../asset/Iphone14.jpg";
+import OnePlus from "../asset/OnePlus.jpg";
+import oppoF21spro from "../asset/oppoF21spro.jpg";
+import redmin11 from "../asset/redmin11.jpg";
+import samsungM13 from "../asset/samsungM13.jpg";
 import iphone from "../asset/iphone.jpg";
-import nm from "../asset/nm.jpg";
-import del from "../asset/del.jpg";
-import shoes from "../asset/shoes.jpg";
+import HPLaptopX36014a from "../asset/HPLaptopX36014a.jpg";
+import z from "../asset/z.jpg";
+import s from "../asset/s.jpg";
+import Macbook from "../asset/Macbook.jpg";
+import headphone from "../asset/headphone.jpg";
 import { useNavigate } from "react-router-dom";
 import ItemCard from "../component/ItemCard";
 import Container from "react-bootstrap/Container";
@@ -37,12 +36,12 @@ export const latestProducts = [
   {
     title: "T-shirt for Women",
     image: w,
-    price: 200,
+    price: 1000,
     id: 1,
     category: "latestOutfit",
   },
   {
-    title: "T-shirt",
+    title: "Shirt",
     image: m2,
     price: 800,
     id: 2,
@@ -50,138 +49,158 @@ export const latestProducts = [
   },
   {
     title: "T-shirt",
-    image: c1,
-    price: 200,
+    image: w1,
+    price: 400,
     id: 3,
+    category: "latestOutfit",
+  },
+  {
+    title: "Long Sleeve Sweater",
+    image: w4,
+    price: 600,
+    id: 4,
+    category: "latestOutfit",
+  },
+  {
+    title: "Twin",
+    image: w3,
+    price: 800,
+    id: 5,
+    category: "latestOutfit",
   },
   {
     title: "Long Sleeve Sweater",
     image: m,
-    price: 300,
-    id: 4,
-  },
-  {
-    title: "New Product E",
-    image: m2,
-    price: 500,
-    id: 5,
-  },
-  {
-    title: "New Product F",
-    image: m1,
-    price: 500,
+    price: 790,
     id: 6,
+    category: "latestOutfit",
   },
   {
-    title: "New Product G",
-    image: m,
-    price: 500,
+    title: "Whitedress Baby Girl set",
+    image: k1,
+    price: 750,
     id: 7,
+    category: "KidsWear",
   },
   {
-    title: "New Product H",
-    image: kid4,
-    price: 500,
+    title: "Boys Winter Design Set",
+    image: k2,
+    price: 900,
     id: 8,
+    category: "KidsWear",
   },
 
   {
-    title: "New Product I",
-    image: del,
-    price: 500,
+    title: "T-shirt&Jeans",
+    image: b1,
+    price: 800,
     id: 9,
+    category: "KidsWear",
   },
   {
-    title: "New Product J",
-    image: ddd,
-    price: 500,
+    title: "Crop-top with Skirt",
+    image: kid3,
+    price: 650,
     id: 10,
+    category: "KidsWear",
   },
   {
-    title: "New Product K",
-    image: iphone,
-    price: 500,
+    title: "Winter Set for boy",
+    image: b3,
+    price: 990,
     id: 11,
+    category: "KidsWear",
   },
-  // },
-  // {
-  //   title: "New Product L",
-  //   image: watch,
-  //   price: 500,
-  //   id: 5,
-  // },
-  // {
-  //   title: "New Product M",
-  //   image: kid1,
-  //   price: 600,
-  //   id: 5,
-  // },
-  // {
-  //   title: "New Product N",
-  //   image: kid2,
-  //   price: 700,
-  //   id: 5,
-  // },
-  // {
-  //   title: "New Product O",
-  //   image: kid3,
-  //   price: 500,
-  //   id: 5,
-  // },
-  // {
-  //   title: "New Product P",
-  //   image: kid4,
-  //   price: 500,
-  //   id: 5,
-  // },
-  // {
-  //   title: "New Product Q",
-  //   image: k1,
-  //   price: 800,
-  //   id: 5,
-  // },
-  // {
-  //   title: "New Product R",
-  //   image: g1,
-  //   price: 1000,
-  //   id: 5,
-  // },
-  // {
-  //   title: "New Product S",
-  //   image: k2,
-  //   price: 800,
-  //   id: 5,
-  // },
-  // {
-  //   title: "New Product S",
-  //   image: b6,
-  //   price: 700,
-  //   id: 5,
-  // },
-  // {
-  //   title: "New Product T",
-  //   image: b4,
-  //   price: 800,
-  //   id: 5,
-  // },
-  // {
-  //   title: "New Product U",
-  //   image: b3,
-  //   price: 700,
-  //   id: 5,
-  // },
-  // {
-  //   title: "New Product U",
-  //   image: b5,
-  //   price: 500,
-  //   id: 6,
-  // },
-  // {
-  //   title: "New Product U",
-  //   image: b7,
-  //   price: 500,
-  //   id: 5,
-  // },
+  {
+    title: "White T-shirt with Skirt",
+    image: kid2,
+    price: 1100,
+    id: 12,
+  },
+  {
+    title: "Iphone14",
+    image: Iphone14,
+    price: 78999,
+    id: 13,
+    category: "Mobilephones",
+  },
+  {
+    title: "Redmin11",
+    image: redmin11,
+    price: 17000,
+    id: 14,
+    category: "Mobilephones",
+  },
+  {
+    title: "OppoF21spro",
+    image: oppoF21spro,
+    price: 24900,
+    id: 15,
+    category: "Mobilephone",
+  },
+  {
+    title: "SamsungM13",
+    image: samsungM13,
+    price: 27000,
+    id: 16,
+    category: "Mobilephone",
+  },
+  {
+    title: "OnePlus",
+    image: OnePlus,
+    price: 40000,
+    id: 17,
+    category: "Mobilephone",
+  },
+  {
+    title: "Iphone 12 Mini",
+    image: iphone,
+    price: 58000,
+    id: 18,
+    category: "Mobilephone",
+  },
+  {
+    title: "HPLaptopX36014a",
+    image: HPLaptopX36014a,
+    price: 70000,
+    id: 19,
+    category: "Laptop",
+  },
+  {
+    title: "Wired Headphone",
+    image: z,
+    price: 3000,
+    id: 20,
+    category: "Laptop",
+  },
+  {
+    title: "Logitech G502 Mouse",
+    image: s,
+    price: 750,
+    id: 21,
+    category: "Laptop",
+  },
+  {
+    title: "DEL Laptop",
+    image: E1,
+    price: 60000,
+    id: 22,
+    category: "Laptop",
+  },
+  {
+    title: "Mac Apple",
+    image: Macbook,
+    price: 110000,
+    id: 23,
+    category: "Laptop",
+  },
+  {
+    title: "ATH-M30x Headphone",
+    image: headphone,
+    price: 1100,
+    id: 24,
+    category: "Laptop",
+  },
 ];
 
 const Home = () => {

@@ -89,15 +89,25 @@ const ItemCard = ({ product }) => {
     <>
       <Card>
         <CardMedia
-          sx={{ height: 120, objectFit: "cover" }}
+          sx={{ height: 160, objectFit: "cover" }}
           image={product.image}
           title="Laptop"
         />
 
-        <Typography variant="subtitle" component="div" sx={{ px: 1, pt: 1 }}>
+        <Typography
+          style={{ fontSize: "17px", fontWeight: 400, paddingTop: "0px" }}
+          variant="subtitle"
+          component="div"
+          sx={{ px: 1, pt: 1 }}
+        >
           {product.title}
         </Typography>
-        <Typography variant="h6" component="div" sx={{ px: 1, pt: 1 }}>
+        <Typography
+          style={{ fontSize: "15px", paddingTop: "0px", color: "gray" }}
+          variant="h6"
+          component="div"
+          sx={{ px: 1, pt: 1 }}
+        >
           Rs: {product.price}
         </Typography>
 

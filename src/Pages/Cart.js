@@ -21,7 +21,7 @@ import { TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 // import { FaHeart } from "react-icons/fa";
 import { Typography } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
-// import notFound from "../asset/notFound.png";
+import notFound from "../asset/notFound.png";
 import { Link } from "react-router-dom";
 import { CiTrash } from "react-icons/ci";
 
@@ -165,14 +165,14 @@ const Cart = ({ products, total, onCheckoutClicked }) => {
                   marginBottom: "20px",
                 }}
               >
-                {/* <img
+                <img
                   src={notFound}
-                  alt='not found'
-                  loading='lazy'
-                  width='30%'
-                  textAlign='center'
-                  alignItems='center'
-                /> */}
+                  alt="not found"
+                  loading="lazy"
+                  width="30%"
+                  textAlign="center"
+                  alignItems="center"
+                />
                 <h5 style={{ textAlign: "center", paddingBottom: "20px" }}>
                   No Product in your cart.
                 </h5>
