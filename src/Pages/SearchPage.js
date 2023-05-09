@@ -20,7 +20,7 @@ const SearchPage = () => {
   return (
     <Container>
       <div>
-        <Container className='mt-3'>
+        <Container className='mt-3 mb-5' style={{ minHeight: '60vh' }}>
           <h1>Searched Items</h1>
           <Grid container spacing={3}>
             {query && filteredProducts.length > 0 ? (

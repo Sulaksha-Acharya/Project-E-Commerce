@@ -32,3 +32,12 @@ code {
 ::-webkit-scrollbar-thumb:hover {
   background: #b30000;
 }
+
+.navbar-nav .nav-link.active {
+  font-weight: 700;
+  border-bottom: 4px solid rgb(244, 67, 54) !important;
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+  font-weight: 700;
+  margin-right: 0.25rem;
+}

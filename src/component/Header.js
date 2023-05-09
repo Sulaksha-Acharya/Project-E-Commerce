@@ -7,7 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectUserInfo, userActions } from '../store/user-slice'
 import logo from '../asset/logo.png'
-import { selectItemCount } from '../store/cart-slice'
+import { cartActions, selectItemCount } from '../store/cart-slice'
 import { Badge } from 'react-bootstrap'
 import {
   BsFillCartFill,
@@ -32,7 +32,9 @@ const Header = () => {
 
   function logout() {
     dispatch(userActions.logout())
+    dispatch(cartActions.clearCart())
     toast.success('Successfully logged out')
+    navigate('/')
   }
 
   function handleSearch(e) {

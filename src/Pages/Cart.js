@@ -21,7 +21,9 @@ import { TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 // import { FaHeart } from "react-icons/fa";
 import { Typography } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
-// import notFound from "../asset/notFound.png";
+import notFound from "../asset/notFound.png";
+import { Link } from "react-router-dom";
+import { CiTrash } from "react-icons/ci";
 
 const Cart = ({ products, total, onCheckoutClicked }) => {
   const cartItems = useSelector(selectItemlist);
@@ -58,7 +60,7 @@ const Cart = ({ products, total, onCheckoutClicked }) => {
 
   return (
     <div>
-      <Container className="mb-5">
+      <Container className="mb-5" style={{ minHeight: "55vh" }}>
         <h2 style={{ textAlign: "center", marginTop: "20px" }}>Your Cart</h2>
 
         {cartItems && cartItems.length > 0 ? (
@@ -129,6 +131,21 @@ const Cart = ({ products, total, onCheckoutClicked }) => {
                       Rs.
                       {product?.quantity * product?.price}
                     </TableCell>
+
+                    <TableCell>
+                      <CiTrash
+                        // onClick={() => {
+                        //   setShowBasicModal(true)
+                        // }}
+                        style={{
+                          fontSize: "25px",
+                          color: "rgb(244, 67, 54)",
+                          float: "right",
+                        }}
+                        className="me-2"
+                      />
+                      {/* <Checkbox defaultChecked /> */}
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -161,30 +178,44 @@ const Cart = ({ products, total, onCheckoutClicked }) => {
         )}
 
         <br></br>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            flexDirection: "row",
-          }}
-        >
-          <div>
-            <Card style={{ padding: 10, width: 300 }}>
-              <h4>Order Summary</h4>
-              <Typography variant="h6">Subtotal: {totalSum}</Typography>
-              {/* <TableCell>
+        {cartItems && cartItems.length > 0 ? (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              flexDirection: "row",
+            }}
+          >
+            <div>
+              <Card style={{ padding: 10, width: 300 }}>
+                <h4>Order Summary</h4>
+                <Typography variant="h6">Subtotal: {totalSum}</Typography>
+                {/* <TableCell>
                 Rs.
                 {Product?.price * Product?.quantity}
               </TableCell> */}
-              <Typography variant="h6">Shipping Fee: 200</Typography>
-              <Typography variant="h6"> Total: {totalSum + 200} </Typography>
-            </Card>{" "}
-            <br></br>
-            <Button variant="primary" size="lg">
-              Proceed To Buy
-            </Button>{" "}
+                <Typography variant="h6">Shipping Fee: 200</Typography>
+                <Typography variant="h6"> Total: {totalSum + 200} </Typography>
+              </Card>{" "}
+              <br></br>
+              <Button
+                variant="primary"
+                size="lg"
+                color="#fff"
+                style={{ color: "#fff" }}
+              >
+                <Link
+                  to="/checkout"
+                  style={{ color: "#fff", textDecoration: "none" }}
+                >
+                  Proceed To Buy
+                </Link>
+              </Button>
+            </div>
           </div>
-        </div>
+        ) : (
+          " "
+        )}
       </Container>
     </div>
   );

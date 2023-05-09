@@ -1,42 +1,21 @@
-// import * as React from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import { Container, margin } from "@mui/system";
-import ItemCard from "../component/ItemCard";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  cartActions,
-  selectItemlist,
-  wishlistItemlist,
-} from "../store/cart-slice";
-import React, { useState } from "react";
-import Checkbox from "@mui/material/Checkbox";
-// import { FiDelete } from "react-icons/Fi";
+import { Container } from "@mui/system";
+import { useSelector } from "react-redux";
+import { wishlistItemlist } from "../store/cart-slice";
+import React from "react";
 import { CiTrash } from "react-icons/ci";
-import { auth } from "../config/firebase";
-import { useNavigate } from "react-router-dom";
 import { FcApproval } from "react-icons/fc";
-// import notFound from "../asset/notFound.png";
+import notFound from "../asset/notFound.png";
 import Card from "@mui/material/Card";
+import BasicModal from "../component/Modal";
 
-const rows = [];
-const Wishlist = ({ products, total, onCheckoutClicked }) => {
+const Wishlist = () => {
   const wishlistItems = useSelector(wishlistItemlist);
-  const [quantity, setQuantity] = useState(0);
-  const Wishlist = ({ product }) => {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    dispatch(
-      cartActions.Wishlist({
-        ...product,
-      })
-    );
-  };
+  const [showBasicModal, setShowBasicModal] = React.useState(false);
 
   return (
     <div>
@@ -54,7 +33,6 @@ const Wishlist = ({ products, total, onCheckoutClicked }) => {
             >
               <TableHead>
                 <TableRow>
-                  {/* <CiTrash /> */}
                   <TableCell></TableCell>
                   <TableCell style={{ marginLeft: "160", fontSize: 20 }}>
                     Product name
@@ -77,7 +55,17 @@ const Wishlist = ({ products, total, onCheckoutClicked }) => {
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
                     <TableCell>
-                      <CiTrash />
+                      <CiTrash
+                        // onClick={() => {
+                        //   setShowBasicModal(true)
+                        // }}
+                        style={{
+                          fontSize: "25px",
+                          color: "rgb(244, 67, 54)",
+                          float: "right",
+                        }}
+                        className="me-2"
+                      />
                       {/* <Checkbox defaultChecked /> */}
                     </TableCell>
 
@@ -117,14 +105,14 @@ const Wishlist = ({ products, total, onCheckoutClicked }) => {
                   marginBottom: "40px",
                 }}
               >
-                {/* <img
+                <img
                   src={notFound}
                   alt="not found"
                   loading="lazy"
                   width="30%"
                   textAlign="center"
                   alignItems="center"
-                /> */}
+                />
                 <h5 style={{ textAlign: "center" }}>
                   No Product in your wishlist.
                 </h5>
@@ -133,6 +121,12 @@ const Wishlist = ({ products, total, onCheckoutClicked }) => {
           </>
         )}
       </Container>
+      {showBasicModal && (
+        <BasicModal
+          open={showBasicModal}
+          handleClose={() => setShowBasicModal(false)}
+        />
+      )}
     </div>
   );
 };
