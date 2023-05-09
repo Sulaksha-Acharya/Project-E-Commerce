@@ -9,6 +9,8 @@ import { selectUserInfo, userActions } from '../store/user-slice'
 import logo from '../asset/logo.png'
 import { cartActions, selectItemCount } from '../store/cart-slice'
 import { Badge } from 'react-bootstrap'
+import Modal from '@mui/material/Modal'
+
 import {
   BsFillCartFill,
   BsFillHeartFill,
@@ -17,12 +19,15 @@ import {
   BsBoxArrowInRight,
 } from 'react-icons/bs'
 import { LinkContainer } from 'react-router-bootstrap'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { Box, Typography } from '@mui/material'
 
 const Header = () => {
   const [query, setQuery] = useState('')
+  const [showBasicModal, setShowBasicModal] = React.useState(false)
+
   const navigate = useNavigate()
 
   const dispatch = useDispatch()
@@ -122,7 +127,11 @@ const Header = () => {
                     </LinkContainer>
                     <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
                   </NavDropdown> */}
-                  <Nav.Link onClick={logout}>
+                  <Nav.Link
+                    onClick={() => {
+                      setShowBasicModal(true)
+                    }}
+                  >
                     <BsBoxArrowInRight
                       style={{
                         marginRight: '5px',
@@ -176,6 +185,37 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
+      {showBasicModal && (
+        <Modal
+          open={showBasicModal}
+          onClose={setShowBasicModal(false)}
+          aria-labelledby='modal-modal-title'
+          aria-describedby='modal-modal-description'
+        >
+          <Box>
+            <Typography id='modal-modal-title' variant='h6' component='h2'>
+              Logout
+            </Typography>
+            <Typography id='modal-modal-description' sx={{ mt: 2 }}>
+              Are you sure want to logout ?
+              <div>
+                <Button
+                // onClick={() => logout()}
+                >
+                  {' '}
+                  Logout{' '}
+                </Button>
+                <Button
+                // onClick={setShowBasicModal(false)}
+                >
+                  Cancel
+                </Button>
+              </div>
+            </Typography>
+          </Box>
+        </Modal>
+      )}
     </div>
   )
 }
