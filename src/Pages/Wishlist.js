@@ -1,68 +1,21 @@
-// import * as React from "react";
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
-import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
-import Paper from '@mui/material/Paper'
-import { Container, margin } from '@mui/system'
-import ItemCard from '../component/ItemCard'
-import { useDispatch, useSelector } from 'react-redux'
-import {
-  cartActions,
-  selectItemlist,
-  wishlistItemlist,
-} from '../store/cart-slice'
-import React, { useState } from 'react'
-import Checkbox from '@mui/material/Checkbox'
-// import { FiDelete } from "react-icons/Fi";
+import { Container } from '@mui/system'
+import { useSelector } from 'react-redux'
+import { wishlistItemlist } from '../store/cart-slice'
+import React from 'react'
 import { CiTrash } from 'react-icons/ci'
-import { auth } from '../config/firebase'
-import { useNavigate } from 'react-router-dom'
 import { FcApproval } from 'react-icons/fc'
 import notFound from '../asset/notFound.png'
 import Card from '@mui/material/Card'
 import BasicModal from '../component/Modal'
-import { selectUserInfo } from '../store/user-slice'
-import { toast } from 'react-toastify'
 
-const rows = []
-const Wishlist = ({ products, total, onCheckoutClicked }) => {
+const Wishlist = () => {
   const wishlistItems = useSelector(wishlistItemlist)
   const [showBasicModal, setShowBasicModal] = React.useState(false)
-
-  const [quantity, setQuantity] = useState(0)
-
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-
-  const loggedInUser = useSelector(selectUserInfo)
-
-  const Wishlist = ({ product }) => {
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
-    dispatch(
-      cartActions.Wishlist({
-        ...product,
-      })
-    )
-  }
-
-  const addToWishlist = () => {
-    if (!loggedInUser) {
-      navigate('/login')
-      return
-    }
-    dispatch(
-      cartActions.addToWishlist({
-        ...products,
-      })
-    )
-
-    setShowBasicModal(false)
-    toast.success('Product has been added to wishlist')
-  }
 
   return (
     <div>
@@ -80,7 +33,6 @@ const Wishlist = ({ products, total, onCheckoutClicked }) => {
             >
               <TableHead>
                 <TableRow>
-                  {/* <CiTrash /> */}
                   <TableCell></TableCell>
                   <TableCell style={{ marginLeft: '160', fontSize: 20 }}>
                     Product name
@@ -104,9 +56,9 @@ const Wishlist = ({ products, total, onCheckoutClicked }) => {
                   >
                     <TableCell>
                       <CiTrash
-                        onClick={() => {
-                          setShowBasicModal(true)
-                        }}
+                        // onClick={() => {
+                        //   setShowBasicModal(true)
+                        // }}
                         style={{
                           fontSize: '25px',
                           color: 'rgb(244, 67, 54)',
@@ -173,7 +125,6 @@ const Wishlist = ({ products, total, onCheckoutClicked }) => {
         <BasicModal
           open={showBasicModal}
           handleClose={() => setShowBasicModal(false)}
-          handleAddWishlist={addToWishlist}
         />
       )}
     </div>

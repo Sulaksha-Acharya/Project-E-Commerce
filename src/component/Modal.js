@@ -40,11 +40,11 @@ export default function BasicModal({
           </Typography>
           <Typography id='modal-modal-description' sx={{ mt: 2 }}>
             {loggedInUser
-              ? 'Item(s) will be moved to wishlist and removed from cart'
+              ? 'Item(s) will be added to wishlist'
               : 'Please login before adding to wishlist.'}
             <div>
               <Button onClick={handleAddWishlist}>
-                {loggedInUser ? 'Move' : 'Login'}
+                {loggedInUser ? 'Add' : 'Login'}
               </Button>
               <Button onClick={handleClose}>Cancel</Button>
             </div>
