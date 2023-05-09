@@ -21,7 +21,7 @@ import { CiTrash } from "react-icons/ci";
 import { auth } from "../config/firebase";
 import { useNavigate } from "react-router-dom";
 import { FcApproval } from "react-icons/fc";
-import notFound from "../asset/notFound.png";
+// import notFound from "../asset/notFound.png";
 import Card from "@mui/material/Card";
 
 const rows = [];
@@ -117,14 +117,14 @@ const Wishlist = ({ products, total, onCheckoutClicked }) => {
                   marginBottom: "40px",
                 }}
               >
-                <img
+                {/* <img
                   src={notFound}
                   alt="not found"
                   loading="lazy"
                   width="30%"
                   textAlign="center"
                   alignItems="center"
-                />
+                /> */}
                 <h5 style={{ textAlign: "center" }}>
                   No Product in your wishlist.
                 </h5>
