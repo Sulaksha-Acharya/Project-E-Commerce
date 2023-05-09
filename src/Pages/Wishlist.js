@@ -9,7 +9,7 @@ import { wishlistItemlist } from "../store/cart-slice";
 import React from "react";
 import { CiTrash } from "react-icons/ci";
 import { FcApproval } from "react-icons/fc";
-import notFound from "../asset/notFound.png";
+// import notFound from "../asset/notFound.png";
 import Card from "@mui/material/Card";
 import BasicModal from "../component/Modal";
 
@@ -105,14 +105,14 @@ const Wishlist = () => {
                   marginBottom: "40px",
                 }}
               >
-                <img
+                {/* <img
                   src={notFound}
                   alt="not found"
                   loading="lazy"
                   width="30%"
                   textAlign="center"
                   alignItems="center"
-                />
+                /> */}
                 <h5 style={{ textAlign: "center" }}>
                   No Product in your wishlist.
                 </h5>

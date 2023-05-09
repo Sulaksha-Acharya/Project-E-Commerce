@@ -21,7 +21,7 @@ import { TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 // import { FaHeart } from "react-icons/fa";
 import { Typography } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
-import notFound from "../asset/notFound.png";
+// import notFound from "../asset/notFound.png";
 import { Link } from "react-router-dom";
 import { CiTrash } from "react-icons/ci";
 
@@ -57,6 +57,10 @@ const Cart = ({ products, total, onCheckoutClicked }) => {
   const totalSum = cartItems.reduce((acc, item) => {
     return (acc += item.price * item.quantity);
   }, 0);
+
+  const removeFromCart = (product) => {
+    dispatch(cartActions.removeFromCart(product));
+  };
 
   return (
     <div>
@@ -134,9 +138,9 @@ const Cart = ({ products, total, onCheckoutClicked }) => {
 
                     <TableCell>
                       <CiTrash
-                        // onClick={() => {
-                        //   setShowBasicModal(true)
-                        // }}
+                        onClick={() => {
+                          removeFromCart(product);
+                        }}
                         style={{
                           fontSize: "25px",
                           color: "rgb(244, 67, 54)",

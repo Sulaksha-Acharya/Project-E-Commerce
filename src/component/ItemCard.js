@@ -1,7 +1,7 @@
-import React from 'react'
-import { FcLike } from 'react-icons/fc'
-import { BsCartFill } from 'react-icons/bs'
-import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
+import React from "react";
+import { FcLike } from "react-icons/fc";
+import { BsCartFill } from "react-icons/bs";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
 // import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined'
 import {
@@ -12,30 +12,30 @@ import {
   CardMedia,
   IconButton,
   Typography,
-} from '@mui/material'
-import { useDispatch, useSelector } from 'react-redux'
-import { cartActions, wishlistItemlist } from '../store/cart-slice'
-import { toast } from 'react-toastify'
-import BasicModal from './Modal'
+} from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions, wishlistItemlist } from "../store/cart-slice";
+import { toast } from "react-toastify";
+import BasicModal from "./Modal";
 // import Wishlist from '../Pages/Wishlist'
-import { useNavigate } from 'react-router-dom'
-import { auth } from '../config/firebase'
-import { Col, Container, Row } from 'react-bootstrap'
-import { selectUserInfo, userActions } from '../../src/store/user-slice'
+import { useNavigate } from "react-router-dom";
+import { auth } from "../config/firebase";
+import { Col, Container, Row } from "react-bootstrap";
+import { selectUserInfo, userActions } from "../../src/store/user-slice";
 
 const ItemCard = ({ product }) => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const loggedInUser = useSelector(selectUserInfo)
-  const wishlistItems = useSelector(wishlistItemlist)
+  const loggedInUser = useSelector(selectUserInfo);
+  const wishlistItems = useSelector(wishlistItemlist);
 
-  const [showBasicModal, setShowBasicModal] = React.useState(false)
+  const [showBasicModal, setShowBasicModal] = React.useState(false);
 
   const productExistinWishlist = () =>
-    wishlistItems.find((p) => p.id === product.id)
+    wishlistItems.find((p) => p.id === product.id);
 
-  console.log('hg', productExistinWishlist())
+  console.log("hg", productExistinWishlist());
 
   // methods;
   const addToCart = () => {
@@ -51,72 +51,81 @@ const ItemCard = ({ product }) => {
     //     });
     // };
     if (!loggedInUser) {
-      navigate('/login')
-      return
+      navigate("/login");
+      return;
     }
 
     dispatch(
       cartActions.addToCart({
         ...product,
       })
-    )
-    toast.success('Product has been added to cart')
-  }
+    );
+    toast.success("Product has been added to cart");
+  };
   const addToWishlist = () => {
     if (!loggedInUser) {
-      navigate('/login')
-      return
+      navigate("/login");
+      return;
     }
     dispatch(
       cartActions.addToWishlist({
         ...product,
       })
-    )
+    );
 
-    setShowBasicModal(false)
-    toast.success('Product has been added to wishlist')
-  }
+    setShowBasicModal(false);
+    toast.success("Product has been added to wishlist");
+  };
+
+  const removeFromWishlist = (product) => {
+    dispatch(cartActions.removeFromWishlist(product));
+  };
+  const handleRemoveWishlist = () => {
+    removeFromWishlist(product);
+    setShowBasicModal(false);
+    toast.success("Product has been removed from wishlist");
+  };
   return (
     <>
       <Card>
         <CardMedia
-          sx={{ height: 120, objectFit: 'cover' }}
+          sx={{ height: 120, objectFit: "cover" }}
           image={product.image}
-          title='Laptop'
+          title="Laptop"
         />
 
-        <Typography variant='subtitle' component='div' sx={{ px: 1, pt: 1 }}>
+        <Typography variant="subtitle" component="div" sx={{ px: 1, pt: 1 }}>
           {product.title}
         </Typography>
-        <Typography variant='h6' component='div' sx={{ px: 1, pt: 1 }}>
+        <Typography variant="h6" component="div" sx={{ px: 1, pt: 1 }}>
           Rs: {product.price}
         </Typography>
 
-        <Row className='py-2'>
-          <Col className='text-left'>
-            <IconButton size='small'>
+        <Row className="py-2">
+          <Col className="text-left">
+            <IconButton size="small">
               {productExistinWishlist() ? (
                 <AiFillHeart
-                  style={{ color: 'red' }}
+                  style={{ color: "red" }}
                   onClick={() => {
-                    setShowBasicModal(true)
+                    setShowBasicModal(true);
                   }}
                 />
               ) : (
                 <AiOutlineHeart
                   onClick={() => {
-                    setShowBasicModal(true)
+                    setShowBasicModal(true);
                   }}
                 />
               )}
             </IconButton>
           </Col>
-          <Col className='text-right'>
+          <Col className="text-right">
             <IconButton
-              size='small'
+              size="small"
               onClick={addToCart}
-              style={{ color: 'rgb(244, 67, 54)', float: 'right' }}
-              className='me-2'
+              style={{ color: "rgb(244, 67, 54)", float: "right" }}
+              className="me-2"
             >
               <BsCartFill />
             </IconButton>
@@ -129,9 +138,11 @@ const ItemCard = ({ product }) => {
           open={showBasicModal}
           handleClose={() => setShowBasicModal(false)}
           handleAddWishlist={addToWishlist}
+          handleRemoveWishlist={handleRemoveWishlist}
+          productExistinWishlist={productExistinWishlist}
         />
       )}
     </>
-  )
-}
-export default ItemCard
+  );
+};
+export default ItemCard;
