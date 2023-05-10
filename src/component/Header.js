@@ -1,4 +1,6 @@
 import Button from 'react-bootstrap/Button'
+import Button2 from '@mui/material/Button'
+
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import Nav from 'react-bootstrap/Nav'
@@ -9,7 +11,11 @@ import { selectUserInfo, userActions } from '../store/user-slice'
 import logo from '../asset/logo.png'
 import { cartActions, selectItemCount } from '../store/cart-slice'
 import { Badge } from 'react-bootstrap'
-import Modal from '@mui/material/Modal'
+import Dialog from '@mui/material/Dialog'
+import DialogActions from '@mui/material/DialogActions'
+import DialogContent from '@mui/material/DialogContent'
+import DialogContentText from '@mui/material/DialogContentText'
+import DialogTitle from '@mui/material/DialogTitle'
 
 import {
   BsFillCartFill,
@@ -26,14 +32,21 @@ import { Box, Typography } from '@mui/material'
 
 const Header = () => {
   const [query, setQuery] = useState('')
-  const [showBasicModal, setShowBasicModal] = React.useState(false)
-
+  const [open, setOpen] = React.useState(false)
   const navigate = useNavigate()
 
   const dispatch = useDispatch()
   const cartItemcount = useSelector(selectItemCount)
 
   const loggedInUser = useSelector(selectUserInfo)
+
+  const handleClickOpen = () => {
+    setOpen(true)
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+  }
 
   function logout() {
     dispatch(userActions.logout())
@@ -48,7 +61,7 @@ const Header = () => {
   }
 
   return (
-    <div>
+    <>
       <Navbar bg='light' expand='lg'>
         <Container>
           <LinkContainer to='/'>
@@ -114,9 +127,9 @@ const Header = () => {
                     }}
                   />{' '}
                   Cart
-                  <Badge bg='primary' style={{ marginLeft: '3px' }}>
+                  {/* <Badge bg='primary' style={{ marginLeft: '3px' }}>
                     {cartItemcount}
-                  </Badge>
+                  </Badge> */}
                 </Nav.Link>
               </LinkContainer>
               {loggedInUser ? (
@@ -127,11 +140,7 @@ const Header = () => {
                     </LinkContainer>
                     <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
                   </NavDropdown> */}
-                  <Nav.Link
-                    onClick={() => {
-                      setShowBasicModal(true)
-                    }}
-                  >
+                  <Nav.Link onClick={handleClickOpen}>
                     <BsBoxArrowInRight
                       style={{
                         marginRight: '5px',
@@ -186,37 +195,40 @@ const Header = () => {
         </Container>
       </Navbar>
 
-      {showBasicModal && (
-        <Modal
-          open={showBasicModal}
-          onClose={setShowBasicModal(false)}
-          aria-labelledby='modal-modal-title'
-          aria-describedby='modal-modal-description'
-        >
-          <Box>
-            <Typography id='modal-modal-title' variant='h6' component='h2'>
-              Logout
-            </Typography>
-            <Typography id='modal-modal-description' sx={{ mt: 2 }}>
-              Are you sure want to logout ?
-              <div>
-                <Button
-                // onClick={() => logout()}
-                >
-                  {' '}
-                  Logout{' '}
-                </Button>
-                <Button
-                // onClick={setShowBasicModal(false)}
-                >
-                  Cancel
-                </Button>
-              </div>
-            </Typography>
-          </Box>
-        </Modal>
-      )}
-    </div>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby='alert-dialog-title'
+        aria-describedby='alert-dialog-description'
+      >
+        <DialogTitle id='alert-dialog-title'>{'Logout?'}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id='alert-dialog-description'>
+            Are you sure want to logout ?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button2
+            variant='contained'
+            color='success'
+            onClick={() => {
+              logout()
+              handleClose()
+            }}
+          >
+            Logout
+          </Button2>
+          <Button2
+            variant='contained'
+            color='error'
+            onClick={handleClose}
+            autoFocus
+          >
+            Cancel
+          </Button2>
+        </DialogActions>
+      </Dialog>
+    </>
   )
 }
 
