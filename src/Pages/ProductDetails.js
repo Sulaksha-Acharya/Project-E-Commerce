@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { cartActions, wishlistItemlist } from "../store/cart-slice";
 import { latestProducts } from "./Home";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { Button, Card, Container } from "react-bootstrap";
 // import { cartActions } from "../store/cart-slice";
 // import { cartActions } from "../store/cart-slice";
 
@@ -31,8 +32,10 @@ const ProductDetails = ({ match }) => {
   return (
     <div className="product-details">
       <p>{product.name}</p>
+      <Container>
+        <img src={product.image} alt={product.name} width="600" height="400" />
+      </Container>
 
-      <img src={product.image} alt={product.name} />
       <div className="product-info">
         <h2>{product.name}</h2>
         <p>{product.description}</p>
@@ -48,7 +51,17 @@ const ProductDetails = ({ match }) => {
             min="1"
           />
         </div>
-        <button onClick={handleAddToCart}>Add to Cart</button>
+        <Card>
+          <h2>{product.name}</h2>
+          <div>
+            <Button variant="primary" size="sm" onClick={handleAddToCart}>
+              Add to Cart
+            </Button>
+          </div>
+          <Link to="/cart" style={{ color: "#fff", textDecoration: "none" }}>
+            Add to Cart
+          </Link>
+        </Card>
       </div>
     </div>
   );
