@@ -127,9 +127,9 @@ const Header = () => {
                     }}
                   />{' '}
                   Cart
-                  {/* <Badge bg='primary' style={{ marginLeft: '3px' }}>
+                  <Badge bg='primary' style={{ marginLeft: '3px' }}>
                     {cartItemcount}
-                  </Badge> */}
+                  </Badge>
                 </Nav.Link>
               </LinkContainer>
               {loggedInUser ? (
