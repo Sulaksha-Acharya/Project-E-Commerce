@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { cartActions, wishlistItemlist } from '../store/cart-slice'
+import { cartActions } from '../store/cart-slice'
 import { latestProducts } from './Home'
 import { useNavigate, useParams } from 'react-router-dom'
 import { selectUserInfo } from '../../src/store/user-slice'
@@ -14,12 +14,8 @@ import {
   Typography,
 } from '@mui/material'
 import { toast } from 'react-toastify'
-// import { cartActions } from "../store/cart-slice";
-// import { cartActions } from "../store/cart-slice";
 
 const ProductDetails = ({ match }) => {
-  const [quantity, setQuantity] = useState(1)
-
   const { id } = useParams()
   const navigate = useNavigate()
 
@@ -28,15 +24,6 @@ const ProductDetails = ({ match }) => {
   const dispatch = useDispatch()
 
   const product = latestProducts.find((p) => p?.id.toString() === id)
-
-  const handleAddToCart = () => {
-    dispatch(cartActions.addToCart(product, quantity))
-    alert(`${quantity} ${product.name} add to cart`)
-  }
-
-  const handleQuantityChange = (e) => {
-    setQuantity(e.target.value)
-  }
 
   // methods;
   const addToCart = () => {
@@ -54,28 +41,6 @@ const ProductDetails = ({ match }) => {
   }
 
   return (
-    // <div className="product-details">
-    //   <p>{product.name}</p>
-
-    //   <img src={product.image} alt={product.name} />
-    //   <div className="product-info">
-    //     <h2>{product.name}</h2>
-    //     <p>{product.description}</p>
-    //     <p>Price: ${product.price}</p>
-    //     <div className="quantity">
-    //       <label htmlFor="quantity">Quantity:</label>
-    //       <input
-    //         type="number"
-    //         id="quantity"
-    //         name="quantity"
-    //         value={quantity}
-    //         onChange={handleQuantityChange}
-    //         min="1"
-    //       />
-    //     </div>
-    //     <button onClick={handleAddToCart}>Add to Cart</button>
-    //   </div>
-    // </div>
     <Container style={{ minHeight: '55vh' }}>
       <Grid
         container
