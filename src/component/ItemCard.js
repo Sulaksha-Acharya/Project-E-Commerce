@@ -80,11 +80,11 @@ const ItemCard = ({ product }) => {
   return (
     <>
       <Card>
-        <LinkContainer to={`products/${product.id}`}>
+        <LinkContainer className='custom-link' to={`products/${product.id}`}>
           <CardMedia
             sx={{ height: 160, objectFit: 'cover' }}
             image={product.image}
-            title='Laptop'
+            alt='image'
           />
         </LinkContainer>
 

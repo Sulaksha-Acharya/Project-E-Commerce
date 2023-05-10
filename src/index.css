@@ -41,3 +41,10 @@ code {
   font-weight: 700;
   margin-right: 0.25rem;
 }
+.custom-link {
+  cursor: pointer;
+}
+
+.custom-link:hover {
+  text-decoration: underline;
+}
