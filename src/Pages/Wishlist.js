@@ -4,8 +4,8 @@ import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { Container } from "@mui/system";
-import { useSelector } from "react-redux";
-import { wishlistItemlist } from "../store/cart-slice";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions, wishlistItemlist } from "../store/cart-slice";
 import React from "react";
 import { CiTrash } from "react-icons/ci";
 import { FcApproval } from "react-icons/fc";
@@ -13,9 +13,17 @@ import notFound from "../asset/notFound.png";
 import Card from "@mui/material/Card";
 import BasicModal from "../component/Modal";
 
-const Wishlist = () => {
+const Wishlist = ({ product }) => {
+  const dispatch = useDispatch();
   const wishlistItems = useSelector(wishlistItemlist);
   const [showBasicModal, setShowBasicModal] = React.useState(false);
+  const removeFromWishlist = (product) => {
+    dispatch(cartActions.removeFromWishlist(product));
+    const productExistinWishlist = () =>
+      wishlistItems.find((p) => p.id === product.id);
+
+    console.log("hg", productExistinWishlist());
+  };
 
   return (
     <div>
@@ -56,9 +64,9 @@ const Wishlist = () => {
                   >
                     <TableCell>
                       <CiTrash
-                        // onClick={() => {
-                        //   setShowBasicModal(true)
-                        // }}
+                        onClick={() => {
+                          removeFromWishlist(product);
+                        }}
                         style={{
                           fontSize: "25px",
                           color: "rgb(244, 67, 54)",

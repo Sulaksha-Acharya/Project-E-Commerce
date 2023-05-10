@@ -3,7 +3,6 @@ import { FcLike } from 'react-icons/fc'
 import { BsCartFill } from 'react-icons/bs'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 
-// import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined'
 import {
   Button,
   Card,
@@ -11,8 +10,11 @@ import {
   // CardContent,
   CardMedia,
   IconButton,
+  Link,
   Typography,
 } from '@mui/material'
+import { LinkContainer } from 'react-router-bootstrap'
+
 import { useDispatch, useSelector } from 'react-redux'
 import { cartActions, wishlistItemlist } from '../store/cart-slice'
 import { toast } from 'react-toastify'
@@ -39,17 +41,6 @@ const ItemCard = ({ product }) => {
 
   // methods;
   const addToCart = () => {
-    // const handleSignIn = async () => {
-    //   signInWithEmailAndPassword(authentication, email, password)
-    //     .then((res) => {
-    //       dispatch(userActions.loginUser(res.user));
-    //       navigate("login");
-    //     })
-
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
-    // };
     if (!loggedInUser) {
       navigate('/login')
       return
@@ -62,6 +53,7 @@ const ItemCard = ({ product }) => {
     )
     toast.success('Product has been added to cart')
   }
+
   const addToWishlist = () => {
     if (!loggedInUser) {
       navigate('/login')
@@ -88,11 +80,13 @@ const ItemCard = ({ product }) => {
   return (
     <>
       <Card>
-        <CardMedia
-          sx={{ height: 160, objectFit: 'cover' }}
-          image={product.image}
-          title='Laptop'
-        />
+        <LinkContainer to={`products/${product.id}`}>
+          <CardMedia
+            sx={{ height: 160, objectFit: 'cover' }}
+            image={product.image}
+            title='Laptop'
+          />
+        </LinkContainer>
 
         <Typography
           style={{ fontSize: '17px', fontWeight: 400, paddingTop: '0px' }}
