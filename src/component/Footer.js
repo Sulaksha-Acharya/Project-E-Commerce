@@ -47,10 +47,10 @@ const Footer = () => (
               <h5>Top Categories</h5>
               <li> Latest Outfit </li>
               <li> Kid's Wear</li>
-              <li> MOBILE PHONES</li>
-              <li> COMPUTER COMPONENTS</li>
-              <li> WOMEN'S FASHION</li>
-              <li> MEN'S FASHION</li>
+              <li> Mobile Phones</li>
+              <li> Computer Component</li>
+              <li> Women's Fashion</li>
+              <li> Men's Fashion</li>
             </Typography>
           </Grid>
           <Grid item xs={12} md={1}></Grid>
@@ -85,7 +85,7 @@ const Footer = () => (
                   className="SocialMediaIcons"
                 >
                   <FaFacebook
-                    style={{ color: "rgb(244, 67, 54)" }}
+                    style={{ color: "#002984" }}
                     className="me-2"
                     fontSize="25px"
                   />
@@ -97,7 +97,7 @@ const Footer = () => (
                   className="SocialMediaIcons"
                 >
                   <FaLinkedin
-                    style={{ color: "rgb(244, 67, 54)" }}
+                    style={{ color: "#002984" }}
                     className="me-2"
                     fontSize="25px"
                   />
@@ -109,7 +109,7 @@ const Footer = () => (
                   className="SocialMediaIcons"
                 >
                   <FaYoutube
-                    style={{ color: "rgb(244, 67, 54)" }}
+                    style={{ color: "#002984" }}
                     className="me-2"
                     fontSize="25px"
                   />
